@@ -1,10 +1,14 @@
 .main{
     width: 1920px;
     margin: 0px auto;
-    display: contents;
 }
 
 .element{
     width: 1200px;
     margin: 0px auto;
+}
+
+.banner{
+    height: 700px;
+    
 }
