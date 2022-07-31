@@ -34,15 +34,13 @@ const DetailMenu = (props) => {
                     </div>
                     <div className="drinkMenuList">
                         {menuList?.drink.map((item, i) => (
-                            <div>
-                                <Coffee
-                                    id={item.menuid}>
-                                    <CoMenu src = {item.menuimg}/>
-                                    <div className="menuDetail" >
-                                        <p>{item.menuname}</p><p>{item.menuprice}원</p>
+                            <Coffee
+                                id={item.menuid}>
+                                <Menu src = {item.menuimg}/>
+                                <div className="menuDetail" >
+                                    <p>{item.menuname}</p><p>{item.menuprice}원</p>
                                     </div>
-                                </Coffee>
-                            </div>
+                            </Coffee>
                         ))}
                     </div>
                 </div>
@@ -50,30 +48,26 @@ const DetailMenu = (props) => {
                 <div className="CafeHr"></div>
 
                 <div className="dessertMenu">
-                    <p><GiCakeSlice className="cake" /> 디저트메뉴</p>
-                    {menuList?.dessert.map((item, i) => (
-                        <>
-                        <Dessert
-                            id={item.menuid}>
-                            <CoMenu src = {item.menuimg}/>
-                            <p>
-                                {item.category}<br/>
-                                {item.menuname}<br/>
-                                <br/>
-                                {item.menuprice}원
-                            </p>
-                        </Dessert>
-                        </>
-                    ))}
+                    <div className="dessertMenuTitle">
+                        <GiCakeSlice className="dessertIcon" /> <p>디저트 메뉴</p>
+                    </div>
+                    <div className="dessertMenuList">
+                        {menuList?.dessert.map((item, i) => (
+                            <Dessert
+                                id={item.menuid}>
+                                <Menu src = {item.menuimg}/>
+                                <div className="menuDetail">
+                                    <p>{item.menuname}</p><p>{item.menuprice}원</p>
+                                </div>
+                            </Dessert>
+                        ))}
+                    </div>
                 </div>
             </div>
             
         </>
     );
 }
-
-const CoffeeMenu = styled.div`
-`;
 
 const Coffee = styled.div`
     width: 350px;
@@ -92,7 +86,7 @@ const Coffee = styled.div`
 
 `;
 
-const CoMenu = styled.img`
+const Menu = styled.img`
     width: 80px;
     height: 80px;
     border: 1px solid #D9D9D9;
@@ -101,26 +95,20 @@ const CoMenu = styled.img`
     object-fit: cover;
 `;
 
-const DessertMenu = styled.div`
-`;
 
 const Dessert = styled.div`
     width: 350px;
     height: 100px;
-    border: 1px solid black;
+    border: 1px solid #D9D9D9;
 
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
-    margin-bottom: 10px;
+    border-radius:3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     & p {
         margin-top: -20px;
-    }
-
-    : hover {
-        cursor: default;
-        box-shadow : 0px 3px 0px 0px #E0E0E0;
     }
 `;
 export default DetailMenu;

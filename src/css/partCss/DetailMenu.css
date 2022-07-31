@@ -3,17 +3,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto;
-}
-
-.drinkMenu{
-    width: 700px;
-    margin-top: 50px;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin: 50px auto auto auto;
 }
 
 .drinkMenuList{
+    width: 750px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.dessertMenuList{
     width: 750px;
     justify-content: space-between;
     display: flex;
@@ -33,8 +33,28 @@
     color: #19221F; 
 }
 
+.dessertMenuTitle{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.dessertMenuTitle >p{
+    font-family: "Arita-dotum-SemiBold"; 
+    font-size: 20px;
+    color: #19221F; 
+}
 
 .coffeeIcon{
+    font-family: "Arita-dotum-SemiBold"; 
+    width: 40px;
+    height: 40px;
+    color:#3FC275; 
+    margin-right: 10px;
+}
+
+.dessertIcon{
     font-family: "Arita-dotum-SemiBold"; 
     width: 40px;
     height: 40px;
