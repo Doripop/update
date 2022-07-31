@@ -1,3 +1,26 @@
+.ReviewTotal{
+    width: 500px;
+    margin: auto;
+}
+
+/*좋아요 별점*/
+.AlignmentDiv{
+    margin-top: 50px;  
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    cursor: pointer;
+
+    color: #19221F;
+    font-size: 15px;
+    font-family: "Arita-dotum-Light";
+}
+.AlignBtn:hover{
+    font-family: "Arita-dotum-Medium"; 
+    border-bottom: 1px solid #19221f;
+}
 
 
 .postDiv{
@@ -5,14 +28,7 @@
     flex-direction: row;
 }
 
-.AlignmentDiv{
-position: relative;
-    margin: 0px auto;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
 
 .detailContainer{
     margin-top: 30px;
