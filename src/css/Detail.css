@@ -1,0 +1,34 @@
+.CategoryTotal{
+    margin: 50px auto;
+    width: 850px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+.Category > a{
+    border: none;
+    background-color: transparent;
+    width: 50px;
+
+    font-family: "Arita-dotum-Medium";
+    font-size: 25px;
+    color: #19221f;
+
+    cursor: pointer;
+
+}
+.Category > a:hover{
+    font-family: "Arita-dotum-SemiBold"; 
+    border-bottom: 5px solid #19221f;
+}
+.Category > a:active{
+    font-family: "Arita-dotum-SemiBold"; 
+    border-bottom: 5px solid #19221f;
+}
+
+
+.CategoryLine{
+    border-bottom: 1px solid #D9D9D9;
+    margin-top: 5px;
+}
