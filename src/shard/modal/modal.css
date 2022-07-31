@@ -10,6 +10,8 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+
+
 .modal button {
     outline: none;
     cursor: pointer;
@@ -21,23 +23,349 @@
     height: 800px;
     max-width: 450px;
     margin: 0 auto;
-    border-radius: 0.3rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: #fff;
     animation: modal-show 0.1s;
 }
-
-.modal > section > footer {
-    padding: 12px 16px;
-    text-align: right;
+.ExitBtnWhite{
+    width: 25px;
+    height: 25px;
+    color: white;
+    margin: 25px 40px auto 310px;
+}
+.ExitBtnBlack{
+    width: 25px;
+    height: 25px;
+    color: #19221f;
+    margin: 25px 40px auto 310px;
+}
+.ExitBtnGreen{
+    width: 12px;
+    height: 12px;
+    margin: 0 0px 0 5px;
 }
 
-.modal > section > footer button {
-    padding: 6px 12px;
-    color: #fff;
-    background-color: background-color;
-    /* border-radius: 5px; */
+
+/*로그인 모달*/
+
+.ModalHeaderLogin{
+    position: inherit;
+    width: 282px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+
+}
+.ModalHeaderLogin > p{
+    font-family: "BMJUA";
+    font-size: 50px;
+    color: white;
+}
+.ModalHeaderLogin > img{
+    width: 90px;
+    height: 90px;
+    margin-right: 20px;
+}
+.LoginInput{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    margin: auto;
+    
+}
+.LoginInput > input{
+    border: none;
+    background: transparent;
+    width: 300px;
+    height: 25px;
+    border-bottom: 2px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: "Arita-dotum-SemiBold";
+    font-size: 22px;
+    color: white;
+}
+.LoginInput > input[type=email]{
+    margin-bottom: 30px;
+    margin-top: 80px;
+}
+.LoginInput > input::placeholder{
+    font-family: "Arita-dotum-SemiBold";
+    font-size: 25px;
+    color: white;
+}
+
+.SnsBtnTotal{
+    width: 300px;
+    margin: auto;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.SnsBtn{
+    width: 300px;
+    height: 50px;
+    color: white;
+    font-family: "Arita-dotum-SemiBold";
+    font-size: 25px;
+    margin-top: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    border: 0;
+    
+}
+
+/*회원가입 모달*/
+.ModalHeaderSignup{
+    font-size: 25px;
+    line-height: 25px;
+    color: #19221F;
+    font-family: "Arita-dotum-Bold";
+    font-size: 25px;
+    margin: 40px auto auto 44px;
+}
+.CheckBoxTotal{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px auto 30px auto;
+}
+.CheckBox{
+    margin-right: 50px;
+}
+
+.CheckBox > input[type="radio"]{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    
+}
+.CheckBox > label{
+    font-family: "Arita-dotum-Light";
     font-size: 20px;
+    color: #19221F;
 }
+.CheckBox > label:hover{
+    font-family: "Arita-dotum-semibold";
+    font-size: 20px;
+    color: #19221F;
+}
+
+/*사장님*/
+.OwnerInput{
+    width: 290px;
+    margin: auto;
+}
+.OwnerInput > input{
+    width: 290px;
+    height: 40px;
+    border: 2px solid #F3EED9;
+    margin-bottom: 15px;
+}
+
+.OwnerInput > input::placeholder{
+    font-family: "Arita-dotum-Light";
+    font-size: 16px;
+    color: #19221F;
+    padding-left: 10px;
+}
+
+/*유저*/
+.UserInput{
+    width: 290px;
+    margin: auto;
+}
+.UserInput > div > input{
+    width: 290px;
+    height: 40px;
+    border: 2px solid #F3EED9;
+}
+.UserInput > div > input::placeholder{
+    font-family: "Arita-dotum-Light";
+    font-size: 16px;
+    color: #19221F;
+    padding-left: 10px;
+}
+
+.UserInputLock{
+    width: 290px;
+    
+}
+.UserInputLock > div > input{
+    width: 290px;
+    height: 40px;
+    border: 2px solid #F3EED9;  
+    background-image: url('modalmg/lock.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 270px center;
+    
+}
+
+.UserInputLock > div > input::placeholder{
+    font-family: "Arita-dotum-Light";
+    font-size: 16px;
+    color: #19221F;
+    padding-left: 10px;
+}
+.UserInputLock > div > img{
+    height: 22px;
+  
+    position: fixed;
+    right: 820px;
+}
+.ErrorMessage{
+    font-size: 10px;
+    color: red;
+    font-family: "Arita-dotum-Medium";
+    margin-left: 10px;
+}
+
+.lock{
+    height: 22px;
+    width: 22px;
+    color: #19221F;
+
+}
+/*이미지 업로드*/
+.ImageDiv{
+    margin: 15px auto 20px auto;
+    width: 290px;
+}
+
+.ImageDiv > span {
+    font-Size: 20px;
+    color: #19221f;
+    font-Family: "Arita-dotum-SemiBold";
+}
+.FileUpload{
+    width: 290px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.FileUpload > label > input{
+    font-family: "Arita-dotum-Light";
+    font-size: 16px;
+    color: #19221F;
+    padding-left: 10px;
+}
+
+/*가입하기 버튼*/
+footer > .SignBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #19221F;
+    width: 200px;
+    height: 50px;
+    color: white;
+    font-family: "Arita-dotum-SemiBold";
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/*리뷰창 모달*/
+.ReviewHeader{
+    font-family: "Arita-dotum-Medium";
+    font-size: 25px;
+    color: #19221F;
+    margin: 20px 0 0 43px
+}
+.SearchCafe{
+    border: 1px solid #F3EED9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    width: 290px;
+    height: 40px;
+    margin: 30px auto 0 auto;
+}
+/*별점박스*/
+.ReviewStarBox{
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0 15px 0;
+}
+.ReviewStarBox > span{
+    font-family: "Arita-dotum-Medium";
+    color: #19221F;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.ReviewStar{
+    
+    height: 30px; 
+    margin-right: 10px;
+    color: #3FC275;
+    margin: 10px 0 0 10px;
+    
+}
+
+
+/*해시태그박스*/
+.ReviewHash > span{
+    font-family: "Arita-dotum-Medium";
+    color: #19221F;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.ReviewHash{
+    margin-bottom: 15px;
+}
+
+/*리뷰박스*/
+.ReviewBox > span{
+    font-family: "Arita-dotum-Medium";
+    color: #19221F;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+
+
+/*사진업로드*/
+.ImageDiv{
+    margin: 15px auto 20px auto;
+    width: 290px;
+}
+
+.ImageDiv > span {
+    font-Size: 16px;
+    color: #19221f;
+    font-Family: "Arita-dotum-SemiBold";
+}
+.FileUpload{
+    width: 290px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.FileUpload > label > input{
+    font-family: "Arita-dotum-Light";
+    font-size: 16px;
+    color: #19221F;
+    padding-left: 10px;
+}
+
+
+.ReviewUploadBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #19221F;
+    width: 200px;
+    height: 50px;
+    color: white;
+    font-family: "Arita-dotum-SemiBold";
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
 
 .modal.openModal {
     display: flex;
@@ -53,6 +381,7 @@
     display: flex;
     flex-direction: column;
 }
+
 
 
 @keyframes modal-show {
