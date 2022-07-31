@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../css/partCss/Banner.css";
 import Button from '../Button';
+import { BsStarFill, BsStar } from "react-icons/bs"
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { DetailCafeBanner } from '../../redux/modules/AllSlice';
@@ -24,7 +25,7 @@ const DetailBanner = (images) => {
   console.log(list?.imageList)
   // console.log(list?.opentime, "오픈시간" , list?.opentime.split("").slice(0,2))
   console.log(list)
-  const defaultTime = [0,0,0,0]
+  const defaultTime = [0, 0, 0, 0]
 
   const settings = {
     slide: 'div',
@@ -35,78 +36,77 @@ const DetailBanner = (images) => {
     slideToScroll: 15,
     autoplay: true,
     autoplaySpeed: 4000,
-    nextArrow: <Button place="right" margin="0 0 0 590px"/>,
-    prevArrow: <Button margin="0 0 0 -590px"/>,
+    nextArrow: <Button place="right" margin="0 0 0 590px" />,
+    prevArrow: <Button margin="0 0 0 -590px" />,
   };
 
   return (
     <>
       <div className='bannerDiv'>
         <div className='sizeDiv'>
-              <div className='cafeInfo'>
-                <div className='logoDiv'>
-                  <img className='cafeLogo' src={list?.logoimg}></img>
-                </div>
-                  <div className='cafeInfoDiv'>
-                    <div className='cafeNameDiv'>
-                      {list?.cafename}
-                    </div>
-                    <div className='star-reviewCntDiv'>
-                      <span>
-                   
-                        {Array.from({ length: 5 }, (items, i) => (
-                                        <>
-                                            <span
-                                                style={{
-                                                    fontSize: "30px",
-                                                    color: "white",
-                                                    cursor: "pointer"
-                                                }}
-                                            > {list?.avgstar < i + 1 ? <span>☆</span>: "★"}</span>
-                                        </>
-                                    ))}
-                      {list?.avgstar}
-                    </span>
-                       
-                      &nbsp;{list?.postCnt}&nbsp;reviews
-                    </div>
-                    <div className='open-close-time'>
-                      <span>영업시간</span>&nbsp;
-                      AM{!list?.opentime? "00" :list?.opentime.slice(0,2)}:{!list?.opentime? "00":list?.opentime.slice(2,4)}~
-                      PM{!list?.closetime?"00":list?.closetime.slice(0,2)}:{!list?.closetime?"00":list?.closetime.slice(2,4)}
-                    </div> 
-                  </div>
-                </div>
+          <div className='cafeInfo'>
+            <div className='logoDiv'>
+              <img className='cafeLogo' src={list?.logoimg}></img>
+            </div>
+            <div className='cafeInfoDiv'>
+              <div className='cafeNameDiv'>
+                {list?.cafename}
+              </div>
+              <div className='star-reviewCntDiv'>
+                <span style={{ marginRight: "15px" }}>
 
-                {
-        (() => {
-          if (list?.imageList.length === 0)
-            return (
-              <>
-              <div className='nullBanner'>
-                </div>
-              </>
-            );
-          else
-            return (<>
-                <StyledSlider className='slider' {...settings}>
-                  {list?.imageList.map((item, i) => (
+                  {Array.from({ length: 5 }, (items, i) => (
                     <>
-                      <div className='imgItem'>
-                        <img width={599} height={450} src={item.img} alt='slider' />
-                      </div>
-                      {/* {item.imageList?.map((t, i) => ())} //imageList안에 img뽑아오려고 작성한 map */}
+                      <span
+                        style={{
+                          fontSize: "35px",
+                          color: "white",
+                          cursor: "pointer",
+
+                        }}
+                      > {list?.avgstar < i + 1 ? <BsStar /> : <BsStarFill />}</span>
                     </>
                   ))}
-                </StyledSlider>
-              </>  
-            );
-        }
-        )()
-      }
+                </span>
+                {list?.postCnt} reviews
+              </div>
+              <div className='open-close-time'>
+                <span style={{ marginRight: "10px" }}>영업시간</span>
+                AM {!list?.opentime ? "00" : list?.opentime.slice(0, 2)}:{!list?.opentime ? "00" : list?.opentime.slice(2, 4)} -
+                PM {!list?.closetime ? "00" : list?.closetime.slice(0, 2)}:{!list?.closetime ? "00" : list?.closetime.slice(2, 4)}
+              </div>
+            </div>
+          </div>
+
+          {
+            (() => {
+              if (list?.imageList.length === 0)
+                return (
+  
+                    <div className='nullBanner' style={{all:"none"}}>
+                    </div>
+                 
+                );
+              else
+                return (<>
+                  <StyledSlider className='slider' {...settings}>
+                    {list?.imageList.map((item, i) => (
+                      <>
+                        <div className='imgItem'>
+                          <img height={450} src={item.img} alt='slider' />
+                        </div>
+                        {/* {item.imageList?.map((t, i) => ())} //imageList안에 img뽑아오려고 작성한 map */}
+                      </>
+                    ))}
+                  </StyledSlider>
+                </>
+                );
+            }
+            )()
+          }
+        </div>
       </div>
-    </div>
-    
+
     </>
 
   );
@@ -117,6 +117,7 @@ const StyledSlider = styled(Slider)`
    width: 100%;
    margin-bottom: 40px;
    box-sizing: border-box;
+   background-color: #19221F;
 
   .slick-list {  //슬라이드 스크린
     max-width: 100%;
