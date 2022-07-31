@@ -32,8 +32,7 @@ const AllList = () => {
                         <span className="cafeListName">{item?.cafename} </span><br/>
                         <span className="cafeListDetail">
                             {item?.address}&nbsp;
-                            {item?.addressdetail} <br/>
-                            {item?.zonenum}
+                            {item?.addressdetail} {item?.zonenum}
                         </span><br/>
                         <MdCheckCircleOutline
                         onClick={()=>{CafeApply(

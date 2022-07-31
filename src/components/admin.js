@@ -12,8 +12,7 @@ import Reject from "./AdminPages/Reject";
 import AllList from "./AdminPages/AllList";
 import RealAllCafe from "./AdminPages/RealAllCafe";
 
-import {BsCheckSquare} from "react-icons/bs";
-import {BsCheckSquareFill} from "react-icons/bs";
+import {BsCheckSquare,BsXSquare} from "react-icons/bs";
 import {AiOutlineCheckSquare, AiOutlineCloseSquare} from "react-icons/ai"
 
 
@@ -72,7 +71,7 @@ const Admin = () => {
                     }}
                     className="leftButtons"
                     >
-                    <div className="iconOrder"><AiOutlineCheckSquare style={{ width:"30px", height:"30px" }} /></div><div> 최종 승인 카페</div><span className="cntCafes">{list1?.length}개 &gt;</span>
+                    <div className="iconOrder"><BsCheckSquare style={{ width:"25px", height:"25px" }} /></div><div> 최종 승인 카페</div><span className="cntCafes">{list1?.length}개 &gt;</span>
                     </button>
                     <button
                     onClick={()=>{
@@ -80,7 +79,7 @@ const Admin = () => {
                     }}
                     className="leftButtons"
                     >
-                    <div className="iconOrder"><AiOutlineCloseSquare style={{ width:"30px", height:"30px"}} /></div><div>최종 거절 카페</div><span className="cntCafes">{list2?.length}개  &gt;</span>
+                    <div className="iconOrder"><BsXSquare style={{ width:"25px", height:"25px"}} /></div><div>최종 거절 카페</div><span className="cntCafes">{list2?.length}개  &gt;</span>
                     </button>
                 </div>
                 <div className="rightConDiv">

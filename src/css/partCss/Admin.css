@@ -26,14 +26,17 @@
     text-align:left;
     font-family: 'Arita-dotum-Bold';
     font-size: 30px;
-    line-height: 35px;
+    line-height: 40px;
     margin-top: 30px;
     margin-left: 30px;
+    color: #19221F;
 }
 
 .leftConDiv > button {
     width: 235px;
     height: 50px;
+
+    border-radius: 3px;
     
     margin-left: 30px;
 
@@ -44,13 +47,14 @@
     cursor: pointer;
 
     background-color: white;
-    border: 1px solid #3FC275;
+    border: 1px solid #D9D9D9;
     
 }
 
 .leftConDiv > button:hover {
     background-color: #3FC275;
     color: white;
+    font-family: 'Arita-dotum-Bold';
 }
 
 .space{
@@ -69,6 +73,7 @@
     vertical-align: center;
     display: flex;
     justify-content: space-between;
+    padding: 10px;
 }
 
 .leftButtons:hover{
@@ -110,6 +115,7 @@
 }
 
 .listDiv {
+    width: 700px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;    
@@ -126,10 +132,10 @@
 
 .Cards{
     width: 200px;
-    height: 121px;
+    height: 120px;
     border: 1px solid #D9D9D9;
     border-radius: 5px;
-    margin-right: 25px;
+    margin-right: 30px;
     margin-bottom: 30px;
 }
 
@@ -160,6 +166,7 @@
 .cafeListDetail{
     font-size: 12px;
     font-family: 'Arita-dotum-Medium';
+    margin-bottom: 20px;
 }
 
 .deleteLine{
@@ -192,6 +199,7 @@
 }
 
 .registerButton{
+    margin-top: 20px;
     margin-left: 103px;
     width: 25px;
     height: 25px;
@@ -199,6 +207,7 @@
 }
 
 .cancelButton{
+    margin-top: 20px;
     width: 25px;
     height: 25px;
     margin-left : 12px;
@@ -229,5 +238,5 @@
 .iconOrder{
     float: left;
     margin-top: 5px;
-    color:#3FC275 
+    color:#3FC275;
 }
