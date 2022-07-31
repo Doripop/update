@@ -1,0 +1,89 @@
+.pageDiv {
+    display : flow-root;
+    flex-direction : column;
+}
+
+.changeDiv {
+    display: inline-block;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Arita-dotum-Medium';
+}
+
+.proileImgBox {
+    display : flex;
+    justify-content: center;
+    flex-direction : column-reverse;
+    align-items : center;
+    margin-bottom: 30px;
+}
+
+.imgBoxSpan{
+    display: -webkit-box;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-direction: column;
+    margin-left: 60px;
+}
+
+.imgBoxSpanChild {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+}
+
+.imageShape {
+    width : 86px;
+    height : 86px;
+    border-radius : 50px;
+    margin-bottom: 10px;
+}
+
+.ripen {
+    width: 20px;
+    height: 20px;
+    color: #000;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.leftContent {
+    width: 240px;
+
+}
+
+.leftContent >button{
+    border-bottom :none;
+    width: 235px;
+    height: 50px;
+    font-size: 15px;
+    color: black;
+
+    cursor: pointer;
+    font-family: 'Arita-dotum-Medium';
+    background-color: white;
+    border: 1px solid #3FC275;
+    border-radius: 3px;
+
+    display: flow-root;
+
+}
+
+.leftContent >button:hover{
+    background-color: #3FC275;
+    color: white;
+}
+
+.elimination {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.elimination>span {
+    color: gray;
+    cursor: pointer;
+}

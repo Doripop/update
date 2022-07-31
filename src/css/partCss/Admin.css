@@ -1,0 +1,46 @@
+.conDiv {
+    width: 100%;
+    display: flex;
+    font-family: 'Arita-dotum-Medium';
+}
+
+.leftConDiv {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.leftConDiv > button {
+    width: 235px;
+    height: 50px;
+    margin: 0 auto;
+    font-size: 13px;
+    color: black;
+
+    font-family: 'Arita-dotum-Medium';
+    cursor: pointer;
+
+    background-color: white;
+    border: 1px solid #3FC275;
+    
+}
+
+.leftConDiv>button:hover {
+    background-color: #3FC275;
+}
+
+.rightConDiv {
+    width: 900px;
+    padding: 10px;
+    margin-right: 200px;
+    align-items: center;
+}
+
+.listDiv {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;    
+    margin-top: 30px;
+    align-items: center;
+}
