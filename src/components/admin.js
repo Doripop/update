@@ -41,62 +41,71 @@ const Admin = () => {
 
 
     return (
-        <div className="conDiv">
-            <div className="leftConDiv">
-                <h2>
-                    오늘도 일해주세요!<br/>
-                    관리자님!
-                </h2>
-                <button
-                onClick={()=>{
-                    setSubMenu("A")
-                }}
-                >
-                    전체 신청 리스트 {list?.length}개 &gt;
-                </button>
-                <button
-                onClick={()=>{
-                    setSubMenu("B")
-                }}
-                >
-                   <BsCheckSquare size="15" color="green"/>승인된 목록 {list1?.length}개&gt;
-                </button>
-                <button
-                onClick={()=>{
-                    setSubMenu("C")
-                }}
-                >
-                    <BsCheckSquareFill size="15" color="green"/>최종 거절 카페 {list2?.length}개 &gt;
-                </button>
-                <button
-                onClick={()=>{
-                    setSubMenu("D")
-                }}
-                >
-                   모든 등록된 카페 {list3?.length}개 &gt;
-                </button>
-            </div>
-            <div className="rightConDiv">
-                {
-                    subMenu === "A" && <h3>미처리</h3> ||
-                    subMenu === "B" && <h3>승인된 목록</h3> ||
-                    subMenu === "C" && <h3>거절 목록</h3> ||
-                    subMenu === "D" && <h3>모든 등록된 카페</h3>
-
-                }
-                <hr />
-                <div className="listDiv">
+        <div className="totalDiv">
+            <div className="conDiv">
+                <div className="leftConDiv">
+                    <div className="detailLine">
+                        오늘도 일해주세요!<br/>
+                        관리자님!
+                    </div>
+                    <button
+                    onClick={()=>{
+                        setSubMenu("A")
+                    }}
+                    className="leftButtonsTop"
+                    >
+                    전체 등록 리스트 <span className="cntCafes">{list?.length}개  &gt;</span>
+                    </button>
+                    <button
+                    onClick={()=>{
+                        setSubMenu("D")
+                    }}
+                    className="leftButtons"
+                    >
+                    개설된 카페<span className="cntCafes">{list3?.length}개  &gt;</span>
+                    </button>
+                    <button
+                    onClick={()=>{
+                        setSubMenu("B")
+                    }}
+                    className="leftButtons"
+                    >
+                    <BsCheckSquareFill size="15" color="green"/> 최종 승인 카페 <span className="cntCafes">{list1?.length}개 &gt;</span>
+                    </button>
+                    <button
+                    onClick={()=>{
+                        setSubMenu("C")
+                    }}
+                    className="leftButtons"
+                    >
+                    <BsCheckSquare className="checkV" size="15" color="green"/> 최종 거절 카페<span className="cntCafes">{list2?.length}개  &gt;</span>
+                    </button>
+                </div>
+                <div className="rightConDiv">
                     {
-                        subMenu === "A" && <AllList /> ||
-                        subMenu === "B" && <Success /> ||
-                        subMenu === "C" && <Reject /> ||
-                        subMenu === "D" && <RealAllCafe />
+                        subMenu === "A" && <h3 className="registerState">전체 등록 리스트</h3> ||
+                        subMenu === "B" && <h3 className="registerState">최종 승인 카페</h3> ||
+                        subMenu === "C" && <h3 className="registerState">최종 거절 카페</h3> ||
+                        subMenu === "D" && <h3 className="registerState">개설된 카페</h3>
 
                     }
+                    <hr/>
+                    <div className="listDiv">
+                        {
+                            subMenu === "A" && <AllList /> ||
+                            subMenu === "B" && <Success /> ||
+                            subMenu === "C" && <Reject /> ||
+                            subMenu === "D" && <RealAllCafe />
+
+                        }
+                    </div>
                 </div>
+
             </div>
             {/* <ScrollBtn/> */}
-        </div>
+
+            <ScrollBtn/>
+            </div>
     );
 }
 

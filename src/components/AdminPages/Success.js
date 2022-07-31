@@ -19,44 +19,23 @@ const Success = () => {
     return (
         <>
             {list?.map((item, i) => (
-                <Card
+                <div className="Cards"
                     key={i}>
-                    <h3>{item.cafename}</h3>
-                    <p>
-                        {item.address}&nbsp;
-                        {item.addressdetail} <br />
-                        {item.zonenum}
-                    </p>
-                </Card>
+                    <div className="cafeCards">
+                        <span className="cafeListName">{item.cafename}</span><br/>
+                        <span className="cafeListDetail">
+                            {item.address}&nbsp;
+                            {item.addressdetail} <br/>
+                            {item.zonenum}
+                        </span>
+
+                    </div>
+                </div>
             ))}
         </>
     )
 }
 
 
-
-const Card = styled.div`
-    width: 200px;
-    height: 121px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    margin-right: 30px;
-    margin-bottom: 30px;
-
-    h3 {font-size: 12px;}
-
-    p {font-size: 10px;}
-    
-    button {
-        margin: 0 auto 0 auto;
-        cursor: pointer;
-        background-color: transparent;
-        border-radius: 50px;
-    }
-    
-    :hover {
-        border: 2px solid #3FC275;
-    }
-`;
-
+// border: 2px solid #3FC275;
 export default Success;
