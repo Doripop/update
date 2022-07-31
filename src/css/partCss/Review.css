@@ -1,0 +1,80 @@
+
+
+.postDiv{
+    display: "flex";
+    flex-direction: row;
+}
+
+.AlignmentDiv{
+position: relative;
+    margin: 0px auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.detailContainer{
+    margin-top: 30px;
+}
+
+.detailReviewDiv{
+    width: 500px;
+    margin: 0 auto 50px auto;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewHeader{
+    padding: 0px 20px 0px 20px ;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.like-starDiv {
+    color: #19221f;
+    display: flex;
+    position:relative;
+    margin: 10px 0px 10px 0px;
+    height: 24px;
+}
+
+.star{
+    font-size: 24px;
+}
+
+.like{
+    font-size: 24px;
+}
+
+.star-text{
+    font-size: 14px;
+    font-family: "Arita-dotum-SemiBold";
+}
+
+.nickname{
+    font-size: 20px;
+    font-family: "Arita-dotum-SemiBold";
+}
+
+.imageSlider{
+    display: flex;
+    width: 500px;
+    height: 500px;
+}
+
+.imageContainer{ 
+    border: 1px solid #D9D9D9;
+    width: 500px;
+    height: 500px;
+}
+
+
+.reviewImgDiv > img{
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
