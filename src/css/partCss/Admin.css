@@ -17,7 +17,7 @@
     margin: 50px auto;
     display: flex;
     flex-direction: column;
-    text-align: center;
+
 }
 
 .detailLine{
@@ -34,7 +34,9 @@
 .leftConDiv > button {
     width: 235px;
     height: 50px;
-    margin: 40 auto auto auto;
+    
+    margin-left: 30px;
+
     font-size: 13px;
     color: black;
 
@@ -46,43 +48,57 @@
     
 }
 
-.leftConDiv>button:hover {
+.leftConDiv > button:hover {
     background-color: #3FC275;
     color: white;
 }
 
-.leftButtonsTop{
-    width: 235px;
-    height: 50px;
-    font-family: 'Arita-dotum-Medium';
-    font-size: 18px;
-    border-color: #D9D9D9;
-    margin-left: 15px;
-    margin-top: 30px;
+.space{
+    margin-top: 35px;
 }
 
 .leftButtons{
-    width: 235px;
+    width: 260px;
     height: 50px;
     font-family: 'Arita-dotum-Medium';
     font-size: 18px;
     border-color: #D9D9D9;
     margin-left: 15px;
-    float:justify;
+    text-align: left;
+    align-items: center;
+    vertical-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftButtons:hover{
+    background-color: #3FC275;
+    color: #ffffff;
+}
+
+.leftButtons:hover .cntCafes{
+    background-color: #3FC275;
+    color: #ffffff;
+}
+
+.leftButtons:hover .iconOrder{
+    color: #ffffff;
 }
 
 .listName{
-    width:117.5px;
+    width:115px;
     height: 50px;
     margin-right: 80px;
-    float: left;
+    vertical-align: bottom;
 }
 
 .cntCafes{
-    width: 117.5px;
-    height: 50px;
+    width: 90px;
+    height: 20px;
     color: #3FC275;
-    float: right;
+    text-align: right;
+    align-items: center;
+    margin: top 5px;
 }
 
 .rightConDiv {
@@ -104,7 +120,7 @@
 
 .registerState{
     font-size: 14px;
-    margin-left: 20px;
+    margin-left: 30px;
     margin-top: 30px;
 }
 
@@ -116,6 +132,7 @@
     margin-right: 25px;
     margin-bottom: 30px;
 }
+
 .Cards:hover #question{
     width: 200px;
     height: 121px;
@@ -178,14 +195,39 @@
     margin-left: 103px;
     width: 25px;
     height: 25px;
+    color: #19221f;
 }
 
 .cancelButton{
     width: 25px;
     height: 25px;
     margin-left : 12px;
+    color: #19221f;
 }
 
-hr{
-    color: #D9D9D9;
+
+.thickLine > div{
+    border-bottom:3px solid #19221F;
+    width: 130px;
+    margin-left: 15px;
+}
+
+.thickLine > hr{
+    margin: 0; 
+}
+
+.registerButton:hover{
+    cursor:pointer;
+    color: #3FC275;
+}
+
+.cancelButton:hover{
+    cursor:pointer;
+    color: #3FC275;
+}
+
+.iconOrder{
+    float: left;
+    margin-top: 5px;
+    color:#3FC275 
 }

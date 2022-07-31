@@ -14,6 +14,7 @@ import RealAllCafe from "./AdminPages/RealAllCafe";
 
 import {BsCheckSquare} from "react-icons/bs";
 import {BsCheckSquareFill} from "react-icons/bs";
+import {AiOutlineCheckSquare, AiOutlineCloseSquare} from "react-icons/ai"
 
 
 
@@ -48,13 +49,14 @@ const Admin = () => {
                         오늘도 일해주세요!<br/>
                         관리자님!
                     </div>
+                    <div className="space"></div>
                     <button
                     onClick={()=>{
                         setSubMenu("A")
                     }}
-                    className="leftButtonsTop"
+                    className="leftButtons"
                     >
-                    전체 등록 리스트 <span className="cntCafes">{list?.length}개  &gt;</span>
+                    <span>전체 등록 리스트</span> <span className="cntCafes">{list?.length}개  &gt;</span>
                     </button>
                     <button
                     onClick={()=>{
@@ -62,7 +64,7 @@ const Admin = () => {
                     }}
                     className="leftButtons"
                     >
-                    개설된 카페<span className="cntCafes">{list3?.length}개  &gt;</span>
+                    <span>개설된 카페</span><span className="cntCafes">{list3?.length}개  &gt;</span>
                     </button>
                     <button
                     onClick={()=>{
@@ -70,7 +72,7 @@ const Admin = () => {
                     }}
                     className="leftButtons"
                     >
-                    <BsCheckSquareFill size="15" color="green"/> 최종 승인 카페 <span className="cntCafes">{list1?.length}개 &gt;</span>
+                    <div className="iconOrder"><AiOutlineCheckSquare style={{ width:"30px", height:"30px" }} /></div><div> 최종 승인 카페</div><span className="cntCafes">{list1?.length}개 &gt;</span>
                     </button>
                     <button
                     onClick={()=>{
@@ -78,7 +80,7 @@ const Admin = () => {
                     }}
                     className="leftButtons"
                     >
-                    <BsCheckSquare className="checkV" size="15" color="green"/> 최종 거절 카페<span className="cntCafes">{list2?.length}개  &gt;</span>
+                    <div className="iconOrder"><AiOutlineCloseSquare style={{ width:"30px", height:"30px"}} /></div><div>최종 거절 카페</div><span className="cntCafes">{list2?.length}개  &gt;</span>
                     </button>
                 </div>
                 <div className="rightConDiv">
@@ -87,25 +89,23 @@ const Admin = () => {
                         subMenu === "B" && <h3 className="registerState">최종 승인 카페</h3> ||
                         subMenu === "C" && <h3 className="registerState">최종 거절 카페</h3> ||
                         subMenu === "D" && <h3 className="registerState">개설된 카페</h3>
-
                     }
-                    <hr/>
+                    <div className="thickLine">
+                        <div></div>
+                        <hr/>
+                    </div>
                     <div className="listDiv">
                         {
                             subMenu === "A" && <AllList /> ||
                             subMenu === "B" && <Success /> ||
                             subMenu === "C" && <Reject /> ||
                             subMenu === "D" && <RealAllCafe />
-
                         }
                     </div>
                 </div>
-
-            </div>
-            {/* <ScrollBtn/> */}
-
             <ScrollBtn/>
             </div>
+        </div>
     );
 }
 
