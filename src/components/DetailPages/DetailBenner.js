@@ -44,48 +44,51 @@ const DetailBanner = (images) => {
     <>
       <div className='bannerDiv'>
         <div className='sizeDiv'>
-          <div className='cafeInfo'>
-            <div className='logoDiv'>
-              <img className='cafeLogo' src={list?.logoimg}></img>
-            </div>
-            <div className='cafeInfoDiv'>
-              <div className='cafeNameDiv'>
-                {list?.cafename}
+          <div className='cafesizeDiv'>
+            <div className='cafeInfo'>
+              <div className='logoDiv'>
+                <img className='cafeLogo' src={list?.logoimg}></img>
               </div>
-              <div className='star-reviewCntDiv'>
-                <span style={{ marginRight: "15px" }}>
+              <div className='cafeInfoDiv'>
+                <div className='cafeNameDiv'>
+                  {list?.cafename}
+                </div>
+                <div className='star-reviewCntDiv'>
+                  <span style={{ marginRight: "15px" }}>
 
-                  {Array.from({ length: 5 }, (items, i) => (
-                    <>
-                      <span
-                        style={{
-                          fontSize: "35px",
-                          color: "white",
-                          cursor: "pointer",
+                    {Array.from({ length: 5 }, (items, i) => (
+                      <>
+                        <span
+                          style={{
+                            fontSize: "35px",
+                            color: "white",
+                            cursor: "pointer",
 
-                        }}
-                      > {list?.avgstar < i + 1 ? <BsStar /> : <BsStarFill />}</span>
-                    </>
-                  ))}
-                </span>
-                {list?.postCnt} reviews
-              </div>
-              <div className='open-close-time'>
-                <span style={{ marginRight: "10px" }}>영업시간</span>
-                AM {!list?.opentime ? "00" : list?.opentime.slice(0, 2)}:{!list?.opentime ? "00" : list?.opentime.slice(2, 4)} -
-                PM {!list?.closetime ? "00" : list?.closetime.slice(0, 2)}:{!list?.closetime ? "00" : list?.closetime.slice(2, 4)}
+                          }}
+                        > {list?.avgstar < i + 1 ? <BsStar /> : <BsStarFill />}</span>
+                      </>
+                    ))}
+                  </span>
+                  {list?.postCnt} reviews
+                </div>
+                <div className='open-close-time'>
+                  <span style={{ marginRight: "10px" }}>영업시간</span>
+                  AM {!list?.opentime ? "00" : list?.opentime.slice(0, 2)}:{!list?.opentime ? "00" : list?.opentime.slice(2, 4)} -
+                  PM {!list?.closetime ? "00" : list?.closetime.slice(0, 2)}:{!list?.closetime ? "00" : list?.closetime.slice(2, 4)}
+                </div>
               </div>
             </div>
+
           </div>
 
           {
             (() => {
               if (list?.imageList.length === 0)
                 return (
-  
-                    <div className='nullBanner' style={{all:"none"}}>
-                    </div>
-                 
+
+                  <div className='nullBanner'>
+                  </div>
+
                 );
               else
                 return (<>
