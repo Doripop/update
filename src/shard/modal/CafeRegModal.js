@@ -118,9 +118,7 @@ const CafeReg = (props) => {
 
   return (
     <>
-      <div
-        className={open ? "openModal modal" : "modal"}
-        style={{ fontFamily: "Arita-dotum-Medium" }}>
+      <div className={open ? "openModal modal" : "modal"}>
         {open ? (
           <>
             <section>
@@ -130,18 +128,17 @@ const CafeReg = (props) => {
                 </span>
               </div>
 
-              <Header>{header}</Header>
               <Body>
                 {role == "user" ? (
                   <div>
-                    <h1>원하시는 카페를 신청해주세요!</h1>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                      }}>
-                      <h3>상호명</h3>
-                      <AdressBox
+                    <p className="CafeHeader">
+                      원하시는 카페를
+                      <br />
+                      신청해주세요!
+                    </p>
+                    <div className="UserCafeName">
+                      <p>상호명</p>
+                      <input
                         ref={Cafe_Name}
                         type="text"
                         placeholder="카페이름 + 지점명"
@@ -149,8 +146,15 @@ const CafeReg = (props) => {
                     </div>
                   </div>
                 ) : (
-                  <div style={{ fontFamily: "Arita-dotum-Medium" }}>
-                    등록하신 카페명 : {cafename}
+                  <div>
+                    <p className="CafeHeader">
+                      사장님의 카페를
+                      <br />
+                      등록해주세요!
+                    </p>
+                    <div className="OwnerCafeName">
+                      <p>{cafename}</p>
+                    </div>
                   </div>
                 )}
                 <h3>우편번호 찾기</h3>
@@ -200,6 +204,7 @@ const CafeReg = (props) => {
               </Body>
               <BtnBox>
                 <BtnAdd
+                  className="CafeUploadBtn"
                   onClick={() => {
                     CafeAdd();
                   }}>
@@ -225,26 +230,11 @@ const postCodeStyle = {
   // backgroundColor: "orange",
 };
 
-const Header = styled.header`
-  display: flex;
-  justify-content: center;
-  height: 40px;
-  text-align: center;
-  font-size: 30px;
-  margin-top: 20px;
-`;
+const Header = styled.header``;
 
-const Body = styled.body`
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
+const Body = styled.body``;
 
-  & h1 {
-    font-size: 22px;
-    font-family: "Arita-dotum-Medium";
-  }
-`;
-
+//도로명 주소&상세주소 입력 input
 const InputBox = styled.input`
   width: 290px;
   height: 40px;
@@ -255,15 +245,27 @@ const InputBox = styled.input`
   outline: none;
 `;
 
+//우편번호 input
 const AdressBox = styled.input`
-  width: 185px;
+  width: 290px;
   height: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-family: "Arita-dotum-Medium";
-  border: 2px solid #f0f4c3;
+  color: #19221f;
+  border: 2px solid #f3eed9;
+  border-radius: 3px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
   outline: none;
+  ::placeholder {
+    color: #19221f;
+    font-size: 16px;
+    font-family: "Arita-dotum-Light";
+    padding: 10px;
+  }
 `;
 
+//우편번호찾기 버튼
 const AdrBtn = styled.button`
   width: 100px;
   height: 45px;
@@ -275,6 +277,7 @@ const AdrBtn = styled.button`
   font-size: 10px;
 `;
 
+//카페 신청하기 버튼
 const BtnBox = styled.div`
   display: flex;
   align-items: center;
@@ -282,13 +285,6 @@ const BtnBox = styled.div`
   margin-top: 20px;
 `;
 
-const BtnAdd = styled.button`
-  width: 150px;
-  height: 51px;
-  background-color: black;
-  color: wheat;
-  font-size: 20px;
-  font-family: "Arita-dotum-Medium";
-`;
+const BtnAdd = styled.button``;
 
 export default CafeReg;
