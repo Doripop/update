@@ -10,6 +10,8 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+
+
 .modal button {
     outline: none;
     cursor: pointer;
@@ -25,8 +27,6 @@
     background-color: #fff;
     animation: modal-show 0.1s;
 }
-
-/*x 아이콘*/
 .ExitBtnWhite{
     width: 25px;
     height: 25px;
@@ -353,69 +353,6 @@ footer > .SignBtn{
 
 
 .ReviewUploadBtn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #19221F;
-    width: 200px;
-    height: 50px;
-    color: white;
-    font-family: "Arita-dotum-SemiBold";
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-/*카페등록 모달*/
-
-.CafeHeader{
-    font-family: "Arita-dotum-Medium";
-    font-size: 25px;
-    line-height: 40px;
-    color: #19221F;
-    margin: 20px 0 0 43px
-}
-
-/*유저 상호명 입력 박스*/
-.UserCafeName > p{
-    font-family: "Arita-dotum-Medium";
-    color: #19221F;
-    font-size: 16px;
-    line-height: 16px;
-    margin-left: 10px;
-}
-
-.UserCafeName > input{
-    width: 290px;
-    font-family: "Arita-dotum-Medium";
-    color: #19221F;
-    font-size: 16px;
-    line-height: 16px;
-
-    border: 2px solid #f3eed9;
-    border-radius: 3px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 10px;
-    outline: none;
-}
-
-.UserCafeName > input::placeholder {
-    color: #19221f;
-    font-size: 16px;
-    line-height: 16px;
-    font-family: "Arita-dotum-Light";
-  }
-
-.OwnerCafeName > p{
-    font-family: "Arita-dotum-Medium";
-    color: #19221F;
-    font-size: 16px;
-    line-height: 16px;
-    margin-left: 10px;
-}
-
-
-/*게시하기 버튼*/
-.CafeUploadBtn{
     display: flex;
     justify-content: center;
     align-items: center;
