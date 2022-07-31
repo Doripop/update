@@ -1,0 +1,102 @@
+
+.CafeDetailHome{
+    width: 800px;
+    margin: auto;
+}
+.CafeHr{
+    margin: 30px 0 20px 0;
+    border: 1px solid #D9D9D9;
+}
+/*배달, 매장 이용 선택*/
+.Delivery{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Delivery > p{
+    font-family: "Arita-dotum-SemiBold";
+    font-size: 20px;
+    color: #19221F;
+    
+}
+.IconMd{
+    width: 40px;
+    height: 40px;
+    background: #3FC275;
+    margin-right: 15px;
+}
+.IconShop{
+    width: 40px;
+    height: 40px;
+    color: #3FC275;
+    margin-right: 15px;
+}
+
+/*가게 설명*/
+.CafeDetail > p{
+    font-family: "Arita-dotum-SemiBold";
+    font-size: 20px;
+    color: #19221F;
+    margin: 0 0 20px 55px;
+}
+
+.CafeDetail > div{
+    font-family: "Arita-dotum-Medium";
+    font-size: 16px;
+    line-height: 30px;
+    color: #19221F;
+    width: 680px;
+    height: 120px;
+    margin-left: 55px;
+}
+ /*가게 공지*/
+ .CafeNotice >div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+ .Sound{
+    width: 40px;
+    height: 40px;
+    color: #3FC275;
+    margin-right: 15px;
+}
+.CafeNotice > div > p{
+    font-family: "Arita-dotum-SemiBold";
+    font-size: 20px;
+    color: #19221F;
+}
+.CafeNotice > p{
+    font-family: "Arita-dotum-Medium";
+    font-size: 16px;
+    line-height: 30px;
+    color: #19221F;
+    width: 680px;
+    height: 120px;
+    margin-left: 55px;
+}
+
+ /*가게 주소*/
+ .CafeMap > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.CafeMapIcon{
+    width: 40px;
+    height: 40px;
+    color: #3FC275;
+    margin-right: 15px;
+}
+.CafeMapAddress{
+    font-family: "Arita-dotum-SemiBold";
+    font-size: 20px;
+    color: #19221F;
+}
+.map{
+    width: 700px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 0 55px;
+}

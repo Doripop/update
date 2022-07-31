@@ -53,181 +53,50 @@ const DetailHome = () => {
 
   return (
     <>
-      <HomeCafe>
-        {OwnerInfoList?.dilivery ? (
-          <h1>
-            <MdDeliveryDining className="IconMD" /> 배달 가능 매장입니다!
-          </h1>
-        ) : (
-          <h1>
-            <GiShop className="IconShop" /> 매장만 이용 가능합니다!
-          </h1>
-        )}
-      </HomeCafe>
-      <Home id={home?.cafeid}>
-        <h1>가게 설명</h1>
-        {home?.intro}
-      </Home>
-      <Home2>
-        <h1>
-          <AiFillSound className="sound" />
-          사장님이 안내드립니다.
-        </h1>
-        <p>{home?.notice}</p>
-      </Home2>
-      <Home3>
-        <h1>
-          <BiMap className="map" />
-          {home?.address}
-          {home?.addressdetail}&nbsp;
-          {home?.zonenum} <br />
-        </h1>
-        <p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-            }}>
-            <div
-              className="map"
-              style={{
-                width: "800px",
-                height: "300px",
-              }}
-              ref={container}></div>
+      <div className="CafeDetailHome">
+        <div>
+          {OwnerInfoList?.dilivery ? (
+            <div className="Delivery">
+              <MdDeliveryDining className="IconMd" />
+              <p>배달 가능 매장입니다!</p>
+            </div>
+          ) : (
+            <div className="Delivery">
+              <GiShop className="IconShop" />
+              <p>매장만 이용 가능합니다!</p>
+            </div>
+          )}
+        </div>
+        <div className="CafeHr"></div>
+        <div id={home?.cafeid} className="CafeDetail">
+          <p>가게 설명</p>
+          <div>{home?.intro}</div>
+        </div>
+        <div className="CafeHr"></div>
+        <div className="CafeNotice">
+          <div>
+            <AiFillSound className="Sound" />
+            <p>사장님이 안내 드립니다!</p>
           </div>
-        </p>
-      </Home3>
+
+          <p>{home?.notice}</p>
+        </div>
+        <div className="CafeHr"></div>
+        <div className="CafeMap">
+          <div>
+            <BiMap className="CafeMapIcon" />
+            <div className="CafeMapAddress">
+              {home?.address}
+              {home?.addressdetail}&nbsp;
+              {home?.zonenum} <br />
+            </div>
+          </div>
+
+          <div className="map" ref={container}></div>
+        </div>
+      </div>
     </>
   );
 };
-
-const HomeCafe = styled.div`
-  width: 960px;
-  height: 100%;
-
-  margin: 0px auto;
-  padding: 20px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  font-family: "Arita-dotum-Medium";
-  border-bottom: solid 1px #d9d9d9;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 30px;
-
-  h1 {
-    margin-left: 33px;
-    color: #19221f;
-    font-family: "Arita-dotum-Medium";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
-  }
-
-  & .IconMD {
-    color: #3fc275;
-  }
-
-  & .IconShop {
-    color: #3fc275;
-    font-size: 30px;
-  }
-`;
-
-const Home = styled.div`
-  width: 960px;
-  height: 100%;
-
-  margin: 0px auto;
-  padding: 20px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  font-family: "Arita-dotum-Medium";
-  border-bottom: solid 1px #d9d9d9;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 30px;
-
-  h1 {
-    margin-left: 22px;
-    color: #19221f;
-    font-family: "Arita-dotum-Medium";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
-  }
-`;
-
-const Home2 = styled.div`
-  width: 960px;
-  height: 100%;
-
-  margin: 0px auto;
-  padding: 20px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  border-bottom: solid 1px #d9d9d9;
-
-  word-break: break-all;
-  font-family: "Arita-dotum-Medium";
-
-  & h1 {
-    color: #19221f;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
-  }
-
-  & p {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 30px;
-    color: #19221f;
-  }
-
-  .sound {
-    color: #3fc275;
-  }
-`;
-
-const Home3 = styled.div`
-  width: 960px;
-  height: 100%;
-
-  margin: 0px auto;
-  padding: 20px;
-  font-family: "Arita-dotum-Medium";
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  color: #19221f;
-  border-bottom: solid 1px #d9d9d9;
-
-  .map {
-    color: #3fc275;
-  }
-
-  & h1 {
-    color: #19221f;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
-  }
-`;
 
 export default DetailHome;
