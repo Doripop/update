@@ -118,30 +118,27 @@ const CafeReg = (props) => {
 
   return (
     <>
-      <div
-        className={open ? "openModal modal" : "modal"}
-        style={{ fontFamily: "Arita-dotum-Medium" }}>
+      <div className={open ? "openModal modal" : "modal"}>
         {open ? (
           <>
-            <section>
+            <section style={{ overflowY: "scroll", overflowX: "hidden" }}>
               <div onClick={close}>
                 <span>
                   <AiOutlineClose className="ExitBtnBlack" />
                 </span>
               </div>
 
-              <Header>{header}</Header>
-              <Body>
+              <div className="CafeRegister">
                 {role == "user" ? (
                   <div>
-                    <h1>원하시는 카페를 신청해주세요!</h1>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                      }}>
-                      <h3>상호명</h3>
-                      <AdressBox
+                    <p className="CafeHeader">
+                      원하시는 카페를
+                      <br />
+                      신청해주세요!
+                    </p>
+                    <div className="UserCafeName">
+                      <p>상호명</p>
+                      <input
                         ref={Cafe_Name}
                         type="text"
                         placeholder="카페이름 + 지점명"
@@ -149,57 +146,70 @@ const CafeReg = (props) => {
                     </div>
                   </div>
                 ) : (
-                  <div style={{ fontFamily: "Arita-dotum-Medium" }}>
-                    등록하신 카페명 : {cafename}
+                  <div>
+                    <p className="CafeHeader">
+                      사장님의 카페를
+                      <br />
+                      등록해주세요!
+                    </p>
+                    <div className="OwnerCafeName">
+                      <p>상호명 : {cafename}</p>
+                    </div>
                   </div>
                 )}
-                <h3>우편번호 찾기</h3>
-                <div
-                  style={{ display: "flex", fontFamily: "Arita-dotum-Medium" }}>
-                  <AdressBox
-                    placeholder="우편번호"
-                    name="address"
-                    onChange={(e) => e.current.value}
-                    value={zone}
-                    required></AdressBox>
-                  <AdrBtn
-                    onClick={() => {
-                      modalClose();
-                    }}>
-                    우편번호 찾기
-                  </AdrBtn>
-                </div>
-                {opened ? (
+                <div className="CafeAddress">
+                  <p>우편번호 찾기</p>
                   <div>
-                    <DaumPostCode
-                      style={postCodeStyle}
-                      onComplete={onComplete}
-                    />
+                    <AdressBox
+                      placeholder="우편번호"
+                      name="address"
+                      onChange={(e) => e.current.value}
+                      value={zone}
+                      required></AdressBox>
+                    <AdrBtn
+                      onClick={() => {
+                        modalClose();
+                      }}>
+                      우편번호 찾기
+                    </AdrBtn>
                   </div>
-                ) : null}
-                <InputBox
-                  type="text"
-                  placeholder="도로명 주소"
-                  value={address}
-                />
-                <InputBox
-                  ref={Detail_Address}
-                  type="text"
-                  placeholder="상세주소를 입력해주세요"
-                />
-
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    fontFamily: "Arita-dotum-Medium",
-                  }}>
-                  <span>*카페는 관리자 승인 후 업로드 됩니다.</span>
-                  <span>*카페 승인은 최소 1시간 소요 될 수 있습니다.</span>
+                  {opened ? (
+                    <div>
+                      <DaumPostCode
+                        style={postCodeStyle}
+                        onComplete={onComplete}
+                      />
+                    </div>
+                  ) : null}
+                  <InputBox
+                    type="text"
+                    placeholder="도로명 주소"
+                    value={address}
+                  />
+                  <InputBox
+                    ref={Detail_Address}
+                    type="text"
+                    placeholder="상세주소를 입력해주세요"
+                  />
                 </div>
-              </Body>
+
+                {role == "user" ? (
+                  <div className="CafeNotice">
+                    <span>
+                      *카페는 관리자 승인 후 업로드 되며,
+                      <br />
+                      카페 승인은 최소 1시간 소요 될 수 있습니다.
+                    </span>
+                  </div>
+                ) : (
+                  <div className="CafeNotice">
+                    <span>*자세한 정보는 마이 페이지에서 입력해주세요!</span>
+                  </div>
+                )}
+              </div>
               <BtnBox>
                 <BtnAdd
+                  className="CafeUploadBtn"
                   onClick={() => {
                     CafeAdd();
                   }}>
@@ -217,64 +227,76 @@ const CafeReg = (props) => {
 //우편찾기
 const postCodeStyle = {
   background: "white",
-  width: "305px",
-  // maxWidth: "300px",
-  height: "205px",
+  width: "310px",
+  height: "250px",
   border: "2px solid #d2d2d2",
+  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
   position: "inherit",
-  // backgroundColor: "orange",
 };
 
-const Header = styled.header`
-  display: flex;
-  justify-content: center;
-  height: 40px;
-  text-align: center;
-  font-size: 30px;
-  margin-top: 20px;
-`;
+const Header = styled.header``;
 
-const Body = styled.body`
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
+const Body = styled.body``;
 
-  & h1 {
-    font-size: 22px;
-    font-family: "Arita-dotum-Medium";
+//우편번호 input
+const AdressBox = styled.input`
+  width: 160px;
+  margin-bottom: 10px;
+  border: 2px solid #f3eed9;
+  border-radius: 3px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  outline: none;
+
+  font-family: "Arita-dotum-Light";
+  color: #19221f;
+  font-size: 16px;
+  line-height: 16px;
+
+  ::placeholder {
+    color: #19221f;
+    font-size: 16px;
+    font-family: "Arita-dotum-Light";
   }
 `;
 
+//도로명 주소&상세주소 입력 input
 const InputBox = styled.input`
   width: 290px;
-  height: 40px;
-  margin-bottom: 10px;
-  font-family: "Arita-dotum-Medium";
-
-  border: 2px solid #f0f4c3;
+  border: 2px solid #f3eed9;
+  border-radius: 3px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
   outline: none;
+
+  margin-bottom: 10px;
+
+  font-family: "Arita-dotum-Light";
+  color: #19221f;
+  font-size: 16px;
+  line-height: 16px;
+
+  ::placeholder {
+    color: #19221f;
+    font-size: 16px;
+    font-family: "Arita-dotum-Light";
+  }
 `;
 
-const AdressBox = styled.input`
-  width: 185px;
-  height: 40px;
-  margin-bottom: 10px;
-  font-family: "Arita-dotum-Medium";
-  border: 2px solid #f0f4c3;
-  outline: none;
-`;
-
+//우편번호찾기 버튼
 const AdrBtn = styled.button`
-  width: 100px;
-  height: 45px;
-  margin-left: 5px;
-  font-family: "Arita-dotum-Medium";
+  width: 120px;
+  height: 40px;
+  margin: 0 0 10px 10px;
+  background: #19221f;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  background-color: black;
-  color: wheat;
-  font-size: 10px;
+  font-size: 16px;
+  color: white;
+  font-family: "Arita-dotum-SemiBold";
 `;
 
+//카페 신청하기 버튼
 const BtnBox = styled.div`
   display: flex;
   align-items: center;
@@ -282,13 +304,6 @@ const BtnBox = styled.div`
   margin-top: 20px;
 `;
 
-const BtnAdd = styled.button`
-  width: 150px;
-  height: 51px;
-  background-color: black;
-  color: wheat;
-  font-size: 20px;
-  font-family: "Arita-dotum-Medium";
-`;
+const BtnAdd = styled.button``;
 
 export default CafeReg;
