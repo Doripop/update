@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { CafeApplyList, CafeApprove } from "../../redux/modules/adminSlice";
+import {MdCheckCircleOutline,MdCancel} from "react-icons/md"
 
 const AllList = () => {
     const dispatch = useDispatch()
@@ -25,29 +26,34 @@ const AllList = () => {
       
         <>
             {list?.map((item, i) => (
-                <Card
+                <div className="Cards"
                     key={i}>
-                    <h3>{item?.cafename} </h3>
-                    <p>
-                        {item?.address}&nbsp;
-                        {item?.addressdetail} <br />
-                        {item?.zonenum}
-                    </p>
-                    <button
-                    onClick={()=>{CafeApply(
-                        item?.registerid, 
-                        false
-                        ); 
-             
-                        }}>⨉</button>
-                    <button 
-                    onClick={()=>{CafeApply(
-                        item?.registerid, 
-                        true
-                        ); 
-             
-                        }}>⩗</button>
-                </Card>
+                    <div className="cafeCards">
+                        <span className="cafeListName">{item?.cafename} </span><br/>
+                        <span className="cafeListDetail">
+                            {item?.address}&nbsp;
+                            {item?.addressdetail} <br/>
+                            {item?.zonenum}
+                        </span><br/>
+                        <MdCheckCircleOutline
+                        onClick={()=>{CafeApply(
+                            item?.registerid, 
+                            true
+                            ); 
+                
+                            }}
+                            className="registerButton"></MdCheckCircleOutline>
+                        <MdCancel
+                        onClick={()=>{CafeApply(
+                            item?.registerid, 
+                            false
+                            ); 
+                
+                            }}
+                            className="cancelButton"></MdCancel>
+                    </div>
+                    
+                </div>
             ))}
         </>
 
@@ -55,31 +61,5 @@ const AllList = () => {
 
     )
 }
-
-
-
-const Card = styled.div`
-    width: 200px;
-    height: 121px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    margin-right: 30px;
-    margin-bottom: 30px;
-
-    h3 {font-size: 12px;}
-
-    p {font-size: 10px;}
-
-    button {
-        margin-top: 10px;
-        margin-right:10px;
-        float: right;
-        cursor: pointer;
-        color: white;
-        background-color: #3FC275;
-        border-radius: 50px;
-        border: 1px solid #3FC275;
-    }
-`;
 
 export default AllList;
