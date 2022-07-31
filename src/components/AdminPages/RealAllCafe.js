@@ -36,7 +36,11 @@ const RealAllCafe = () => {
                         <div id='question'>
                             <span className="deleteLine">카페 페이지를<br/>
                             삭제하시겠습니까?</span><br/>
-                            <button className="deleteButton">삭제</button>
+                            <button 
+                            onClick={()=>{
+                                CafeDelete(item.cafeid) 
+                            }}
+                            className="deleteButton">삭제</button>
                         </div>
                         <span className="cafeListName">{item.cafename}</span><br/>
                         <span className="cafeListDetail">
