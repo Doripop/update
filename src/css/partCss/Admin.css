@@ -17,7 +17,7 @@
     margin: 50px auto;
     display: flex;
     flex-direction: column;
-    text-align: center;
+
 }
 
 .detailLine{
@@ -26,15 +26,20 @@
     text-align:left;
     font-family: 'Arita-dotum-Bold';
     font-size: 30px;
-    line-height: 35px;
+    line-height: 40px;
     margin-top: 30px;
     margin-left: 30px;
+    color: #19221F;
 }
 
 .leftConDiv > button {
     width: 235px;
     height: 50px;
-    margin: 40 auto auto auto;
+
+    border-radius: 3px;
+    
+    margin-left: 30px;
+
     font-size: 13px;
     color: black;
 
@@ -42,47 +47,63 @@
     cursor: pointer;
 
     background-color: white;
-    border: 1px solid #3FC275;
+    border: 1px solid #D9D9D9;
     
 }
 
-.leftConDiv>button:hover {
+.leftConDiv > button:hover {
     background-color: #3FC275;
     color: white;
+    font-family: 'Arita-dotum-Bold';
 }
 
-.leftButtonsTop{
-    width: 235px;
-    height: 50px;
-    font-family: 'Arita-dotum-Medium';
-    font-size: 18px;
-    border-color: #D9D9D9;
-    margin-left: 15px;
-    margin-top: 30px;
+.space{
+    margin-top: 35px;
 }
 
 .leftButtons{
-    width: 235px;
+    width: 260px;
     height: 50px;
     font-family: 'Arita-dotum-Medium';
     font-size: 18px;
     border-color: #D9D9D9;
     margin-left: 15px;
-    float:justify;
+    text-align: left;
+    align-items: center;
+    vertical-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.leftButtons:hover{
+    background-color: #3FC275;
+    color: #ffffff;
+}
+
+.leftButtons:hover .cntCafes{
+    background-color: #3FC275;
+    color: #ffffff;
+}
+
+.leftButtons:hover .iconOrder{
+    color: #ffffff;
 }
 
 .listName{
-    width:117.5px;
+    width:115px;
     height: 50px;
     margin-right: 80px;
-    float: left;
+    vertical-align: bottom;
 }
 
 .cntCafes{
-    width: 117.5px;
-    height: 50px;
+    width: 90px;
+    height: 20px;
     color: #3FC275;
-    float: right;
+    text-align: right;
+    align-items: center;
+    margin: top 5px;
 }
 
 .rightConDiv {
@@ -94,6 +115,7 @@
 }
 
 .listDiv {
+    width: 700px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;    
@@ -104,18 +126,19 @@
 
 .registerState{
     font-size: 14px;
-    margin-left: 20px;
+    margin-left: 30px;
     margin-top: 30px;
 }
 
 .Cards{
     width: 200px;
-    height: 121px;
+    height: 120px;
     border: 1px solid #D9D9D9;
     border-radius: 5px;
-    margin-right: 25px;
+    margin-right: 30px;
     margin-bottom: 30px;
 }
+
 .Cards:hover #question{
     width: 200px;
     height: 121px;
@@ -143,6 +166,7 @@
 .cafeListDetail{
     font-size: 12px;
     font-family: 'Arita-dotum-Medium';
+    margin-bottom: 20px;
 }
 
 .deleteLine{
@@ -175,17 +199,44 @@
 }
 
 .registerButton{
+    margin-top: 20px;
     margin-left: 103px;
     width: 25px;
     height: 25px;
+    color: #19221f;
 }
 
 .cancelButton{
+    margin-top: 20px;
     width: 25px;
     height: 25px;
     margin-left : 12px;
+    color: #19221f;
 }
 
-hr{
-    color: #D9D9D9;
+
+.thickLine > div{
+    border-bottom:3px solid #19221F;
+    width: 130px;
+    margin-left: 15px;
+}
+
+.thickLine > hr{
+    margin: 0; 
+}
+
+.registerButton:hover{
+    cursor:pointer;
+    color: #3FC275;
+}
+
+.cancelButton:hover{
+    cursor:pointer;
+    color: #3FC275;
+}
+
+.iconOrder{
+    float: left;
+    margin-top: 5px;
+    color:#3FC275;
 }
