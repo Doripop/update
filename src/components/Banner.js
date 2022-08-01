@@ -23,12 +23,12 @@ const Banner = () => {
     return (
 
         <StyledSlider {...settings}>
-            <div>
+            <a>
               <img src={BannerImg} alt='slider' />
-            </div>
-            <div>
+            </a>
+            <a href='https://docs.google.com/forms/d/e/1FAIpQLSfgypBBpGJDVPth59Nm392Xt4Re5F13gBWgENpGwwVmlQM6CQ/viewform'>
               <img src={BannerImg2} alt='slider' />
-            </div>
+            </a>
         </StyledSlider> 
       );
     }
