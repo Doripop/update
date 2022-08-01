@@ -217,42 +217,13 @@ const DetailReview = () => {
                 <img className="reviewProfile" src={item.profileimg} />
                 <div className="nickname">{item.nickname}</div>
               </div>
-              {/* {userName === item.nickname ?
-                        (
-                            <ReviewDrop>
-                                <ul className="dep1">
-                                    <li>
-                                        ⋯
-                                        <ul className="dep2">
-                                            <li
-                                                onClick={() => {
-                                                    dispatch(DeletePost(item.postid))
-                                                }}
-                                            >
-                                                삭제하기
-                                            </li>
-                                            <li
-                                                onClick={() => {
-                                                    dispatch(DeletePost({
-                                                        postid: item.postid,
-                                                        // 인풋 값 받아서 수정
-                                                    }))
-                                                }}
-                                            >수정하기
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </ReviewDrop>
-
-                        ) : (null)} */}
               {/* 게시글 이미지 슬라이드 */}
               <div className="imageContainer">
                 <StyledSlider className="imageSlider" {...settings}>
                   {item.image.map((item, i) => (
                     <>
-                      <div className="reviewImgDiv">
-                        <img src={item.img} alt="slider" />
+                      <div className='reviewImgDiv'>
+                        <img src={item.img} alt='slider' />
                       </div>
                     </>
                   ))}
@@ -260,110 +231,61 @@ const DetailReview = () => {
               </div>
 
               {/* <ReviewImg src={item.image[0].img} /> */}
-
-              <ReviewStarLove>
+              {/* 이미지 슬라이드 하단부분*/}
+              <div className="content-commentDiv">
                 <div className="like-starDiv">
-                  <BsStarFill className="star" />{" "}
-                  <div className="text">별점 {item.star}점</div>
-                  <span
-                    className="like"
-                    onClick={() => {
-                      LikeClick({ postid: review[i]?.postid, i: i });
-                    }}>
+                  <BsStarFill className="star" /> <div className="text"> 별점 {item.star}점
+                  </div>
+                  <div className="like" onClick={() => { LikeClick({ postid: review[i]?.postid, i: i, }) }}>
                     {AllLikeList[LikeIndex[i]]?.postid === review[i]?.postid &&
-                    AllLikeList[LikeIndex[i]]?.like ? (
-                      <BsHeartFill />
-                    ) : (
-                      <BsHeart />
-                    )}
-                  </span>
-                  <div className="text">좋아요 {item.likecnt}개</div>
+                      AllLikeList[LikeIndex[i]]?.like ?
+                      (<BsHeartFill />)
+                      : (<BsHeart />)
+                    }
+                  </div>
+                  <div className="text"> 좋아요 {item.likecnt}개</div>
                 </div>
-              </ReviewStarLove>
 
-              <ReviewUserInfo>{item.nickname}</ReviewUserInfo>
-              <Tag>
-                {item.hashtagList.map((t, i) => (
-                  <ReviewTag>{t.hashtag}</ReviewTag>
-                ))}
-              </Tag>
-              <ReviewContext>{item.contents}</ReviewContext>
-              <ReviewCommentGroup>
-                {comment != item.commentList ? (
-                  <details>
-                    <summary>댓글 {item.commentCnt}개 모두 보기</summary>
-                    <ReviewDate>{item.modifiedAt}</ReviewDate>
-                    <ReviewComUp>
-                      {item.commentList.map((comment, i) => (
-                        <>
-                          <div>
-                            {userName === comment.nickname ? (
-                              <span style={{ display: "flex" }}>
-                                <ReviewProfile src={comment.profileimg} />
-                                {comment.nickname}
-                                {comment.contents}
-                                <Btn
-                                  style={{ display: click }}
-                                  onClick={() => {
-                                    clickevent();
-                                  }}>
-                                  🖊
-                                </Btn>
-                                <input
-                                  onChange={(e) => {
-                                    ModifyComment(e);
-                                  }}
-                                  type="text"
-                                  style={{ display: unclick }}
-                                />
-                                <Btn
-                                  style={{ display: unclick }}
-                                  onClick={() => {
-                                    unclickevent();
-                                    // changeCom();
-                                    SendModify(
-                                      comment.commentid,
-                                      item.postid,
-                                      ChangeReview
-                                    );
-                                  }}>
-                                  🖊
-                                </Btn>
-                                <Btn
-                                  onClick={() => {
-                                    SendDelete(comment.commentid, item.postid);
-                                  }}>
-                                  ⨉
-                                </Btn>
-                              </span>
-                            ) : (
-                              <span style={{ display: "flex" }}>
-                                <ReviewProfile src={comment.profileimg} />
-                                {comment.nickname} : {comment.contents}
-                                {comment.modifiedAt}
-                              </span>
-                            )}
-                          </div>
-                        </>
-                      ))}
-                    </ReviewComUp>
-                  </details>
-                ) : (
-                  <summary></summary>
-                )}
-              </ReviewCommentGroup>
-              <ReviewComment>
+                <div className="nickname">{item.nickname}</div>
+                <div className="hashTag">
+                  {item.hashtagList.map((t, i) => (<ReviewTag>{t.hashtag} </ReviewTag>))}
+                </div>
+                <div className="reviewcontentDiv">{item.contents}</div>
+                <div className="showComments">댓글 {item.commentCnt}개 모두 보기</div>
+                <div className="modified">{item.modifiedAt}</div>
+              </div>
+
+              <div className="inputCommentDiv">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuxyawNNOaJGwlR1wUq1PSSeLw3YwLj0S1vA&usqp=CAU"></img>
                 <input
                   type="text"
                   onChange={(e) => {
-                    setComment(e.target.value);
+                    setComment(e.target.value)
                   }}
                   placeholder="댓글달기"
-                  onKeyPress={(e) => {
-                    keyPress(e, item.postid);
-                  }}
+                  onKeyPress={(e) => { keyPress(e, item.postid); }}
                 />
-              </ReviewComment>
+              </div>
+              {item.commentList.length === 0 ?
+
+                <></> :
+
+                <div id={item.postid} className="commentBox">
+                  {item.commentList?.map((comment, i) => (
+                    <div className="commentDiv">
+                      <img src={comment.profileimg}></img>
+                      <div className="commentInfo">
+                        <div className="commentNickname">{comment.nickname}</div>
+                        <div className="commentContext">{comment.contents}</div>
+                      </div>
+                    </div>
+
+
+                  ))}
+                </div>
+              }
+
+
             </div>
           ))}
         </div>
@@ -378,242 +300,196 @@ const ReviewContent = styled.div``;
 
 const Alignment = styled.div``;
 
-const AlignBtn = styled.button``;
-
-const Review = styled.div`
-  position: relative;
-  margin: 29px auto 20px auto;
-
-  border: 1px solid #d9d9d9;
-  border-radius: 5px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const AlignBtn = styled.button`
+    width: 80px;
+    height: 15px;
+    font-size: 15px;
+    margin-right: 15px;
+    border: none;
+    background-color: transparent;
+    font-family: 'Arita-dotum-Medium';
+    :hover {
+        cursor: pointer;
+        font-weight: bold;
+        text-decoration: underline;
+    }
 `;
 
-const ReviewHeader = styled.div``;
+const Review = styled.div`
+    position: relative;
+    margin: 29px auto 20px auto;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+const ReviewHeader = styled.div`
+`;
 
 const ReviewDrop = styled.div`
-  // margin: 0 auto;
-  // padding: 0 auto;
-  position: relative;
-  & ul,
-  li {
-    list-style: none;
-  }
-
-  .dep2 > li {
-    width: 100px;
-    height: 20px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  .dep1 > li {
-    display: block;
-    cursor: pointer;
-  }
-
-  .dep1 > li:hover > .dep2 {
-    display: block;
-  }
-
-  .dep2 {
-    display: none;
-  }
+    // margin: 0 auto;
+    // padding: 0 auto;
+    position: relative;
+    & ul, li {
+        list-style: none;
+    }
+    .dep2>li {
+        width: 100px;
+        height: 20px;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .dep1>li {
+        display: block;
+        cursor: pointer;
+    }
+    .dep1>li:hover> .dep2 {
+        display: block;
+    }
+    .dep2 {
+        display: none;
+    }
 `;
 
 const ReviewImg = styled.img`
-  width: 500px;
-  height: 500px;
+    width: 500px;
+    height: 500px;
 `;
 
-const ReviewStarLove = styled.div`
-  // width: 500px;
-  // height: 24px;
-  // margin-left: 20px;
-  // margin-bottom: 10px;
-`;
+const ReviewStarLove = styled.div``;
 
-const ReviewUserInfo = styled.div`
-  width: 500px;
-  height: 20px;
-  margin-left: 20px;
-  font-size: 20px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: row;
-`;
+const ReviewUserInfo = styled.div``;
 
-const Tag = styled.div`
-  position: relative;
-  margin-left: 18px;
-  width: 500px;
-`;
+const Tag = styled.div``;
 
 const ReviewTag = styled.div`
-  width: 500px;
-  height: 20px;
-  margin-left: 10px;
-  padding: -10px;
-  display: contents;
+    width: 500px;
+    height: 20px;
+    display: contents;
 `;
 
-const ReviewContext = styled.div`
-  width: 480px;
-  margin-top: 10px;
-`;
+const ReviewContext = styled.div``;
 
-const ReviewCommentGroup = styled.div`
-  position: relative;
-  width: 400px;
-  margin: 0 auto;
-  color: gray;
-  margin-left: -20px;
-
-  details {
-    font: 16px "Open Sans", sans-serif;
-    float: left;
-    padding: 0.5em 0.5em 0;
-  }
-
-  summary {
-    margin-left: 20px;
-    cursor: pointer;
-    list-style: none;
-    font-family: "Arita-dotum4.0(OTF)";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
-    margin-top: 15px;
-  }
-`;
+const ReviewCommentGroup = styled.div``;
 
 const ReviewComUp = styled.div`
-  width: 500px;
-  margin-left: 20px;
-  line-height: 2;
-  color: gray;
-
-  input {
-    position: relative;
-    margin-left: 5px;
-    background-repeat: no-repeat;
-    border: 1px solid #ccc;
-
-    :focus {
-      border-color: #0982f0;
-      outline: none;
+    width: 500px;
+    margin-left: 20px;
+    line-height: 2;
+    color: gray;
+    input {
+        position: relative;
+        margin-left: 5px;
+        background-repeat: no-repeat;
+        border: 1px solid #ccc;
+        
+        :focus {
+            border-color:#0982f0;
+            outline: none;
+        }
     }
-  }
 `;
 
 const ReviewDate = styled.div`
-  width: 500px;
-  height: 30px;
-  line-height: 2;
-  margin-left: 20px;
-  color: gray;
-  margin-top: 15px;
-  font-family: "Arita-dotum4.0(OTF)";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 15px;
+    width: 500px;
+    height: 30px;
+    line-height: 2;
+    margin-left: 20px;
+    color: gray;
+    margin-top: 15px;
+    font-family: 'Arita-dotum4.0(OTF)';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 15px;
 `;
 
 const ReviewComment = styled.div`
-  width: 500px;
-  height: 60px;
-
-  line-height: 5;
-  border-radius: 0px 0px 5px 5px;
-
-  & input {
-    width: 488px;
+    width: 500px;
     height: 60px;
-    margin-top: 12px;
-    border: 1px solid #ccc;
-    background-repeat: no-repeat;
-    padding: 5px 5px;
+    line-height: 5;
     border-radius: 0px 0px 5px 5px;
-
-    :focus {
-      border-color: #0982f0;
+    & input {
+        width: 488px;
+        height: 60px;
+        margin-top: 12px;
+        border: 1px solid #ccc;
+        background-repeat: no-repeat;
+        padding: 5px 5px;
+        border-radius: 0px 0px 5px 5px;
+        :focus {
+            border-color:#0982f0;
+        }
+        ::placeholder {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuxyawNNOaJGwlR1wUq1PSSeLw3YwLj0S1vA&usqp=CAU) ;
+            background-size: contain;
+            background-position:  1px center;
+            background-repeat: no-repeat;
+            text-align: center;
+            text-indent: 0;
+        }
+        
     }
-
-    ::placeholder {
-      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuxyawNNOaJGwlR1wUq1PSSeLw3YwLj0S1vA&usqp=CAU);
-      background-size: contain;
-      background-position: 1px center;
-      background-repeat: no-repeat;
-      text-align: center;
-      text-indent: 0;
-    }
-  }
 `;
 
-const ReviewProfile = styled.img``;
+const ReviewProfile = styled.img`
+`;
 
 const Btn = styled.button`
-  position: relative;
-  /* display: flex; */
-  -webkit-box-align: center;
-  align-items: center;
-  color: black;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  justify-content: center;
-
-  :hover {
-    color: red;
-  }
+    position: relative;
+    /* display: flex; */
+    -webkit-box-align: center;
+    align-items: center;
+    color: black;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    justify-content:center;
+    : hover {
+        color: red;
+    }
 `;
 
 const ReviewComUp2 = styled.div`
-  width: 500px;
-  margin-left: 20px;
-  line-height: 2;
-  color: gray;
-
-  input {
-    position: relative;
-    margin-left: 5px;
-    background-repeat: no-repeat;
-    border: 1px solid #ccc;
-
-    :focus {
-      border-color: #0982f0;
-      outline: none;
+    width: 500px;
+    margin-left: 20px;
+    line-height: 2;
+    color: gray;
+    input {
+        position: relative;
+        margin-left: 5px;
+        background-repeat: no-repeat;
+        border: 1px solid #ccc;
+        :focus {
+            border-color:#0982f0;
+            outline: none;
+        }
     }
-  }
 `;
 
 const ReviewProfile2 = styled.img`
-  width: 30px;
-  height: 30px;
-  border-radius: 20px;
-  margin: 3px;
+    width : 30px;
+    height : 30px;
+    border-radius : 20px;
+    margin: 3px;
 `;
 
 const Btn2 = styled.button`
-  position: relative;
-  /* display: flex; */
-  -webkit-box-align: center;
-  align-items: center;
-  color: black;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  justify-content: center;
-
-  :hover {
-    color: red;
-  }
+    position: relative;
+    /* display: flex; */
+    -webkit-box-align: center;
+    align-items: center;
+    color: black;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    justify-content:center;
+    : hover {
+        color: red;
+    }
 `;
 
 export default DetailReview;
