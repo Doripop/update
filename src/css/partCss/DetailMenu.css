@@ -1,7 +1,70 @@
-.coffee {
+.cafeDetailMenuTab{
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto auto auto;
+}
+
+.drinkMenuList{
+    width: 750px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.dessertMenuList{
+    width: 750px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.coffeeMenuTitle{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.coffeeMenuTitle >p{
+    font-family: "Arita-dotum-SemiBold"; 
+    font-size: 20px;
+    color: #19221F; 
+}
+
+.dessertMenuTitle{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.dessertMenuTitle >p{
+    font-family: "Arita-dotum-SemiBold"; 
+    font-size: 20px;
+    color: #19221F; 
+}
+
+.coffeeIcon{
+    font-family: "Arita-dotum-SemiBold"; 
+    width: 40px;
+    height: 40px;
+    color:#3FC275; 
+    margin-right: 10px;
+}
+
+.dessertIcon{
+    font-family: "Arita-dotum-SemiBold"; 
+    width: 40px;
+    height: 40px;
+    color:#3FC275; 
+    margin-right: 10px;
+}
+
+.coffeeMenu {
     width: 350px;
     height: 100px;
-    border: 1px solid black;
     
     display: inline-flex;
     align-items: center;
@@ -10,11 +73,8 @@
     margin-right: 30px;
     margin-left: 100px; 
     text-align: center;    
-}
 
-.coffee:hover {
-    cursor: default;
-    box-shadow : 0px 3px 0px 0px #E0E0E0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .comenu {
@@ -22,4 +82,45 @@
     height: 80px;
     border: 1px solid #EEE;
     margin-right: 20px;
+}
+
+.CafeMap > div{ 
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+}
+
+.menuDetail{
+    display: flex; 
+    flex-direction: column;
+    height: 40px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.menuDetail > p{
+    font-family: "Arita-dotum-SemiBold"; 
+    font-size: 15px;
+    color: #19221F;
+    margin-bottom: 10px;
+}
+
+.CafeHr{ 
+    margin: 30px 0 20px 0; 
+    border: 1px solid #D9D9D9; 
+}
+
+
+.CafeMapIcon{
+    width: 40px; 
+    height: 40px; 
+    color: #3FC275; 
+    margin-right: 15px; 
+}
+
+.dessertIcon{
+    font-family: "Arita-dotum-SemiBold"; 
+    width: 24px;
+    height: 24px;
+    color:#3FC275; 
 }

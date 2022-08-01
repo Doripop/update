@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import "../../css/partCss/DetailMenu.css";
 
 import { SiBuymeacoffee } from 'react-icons/si';
 import { GiCakeSlice } from 'react-icons/gi';
@@ -26,63 +27,47 @@ const DetailMenu = (props) => {
 
     return (
         <>
-            <CoffeeMenu>
-                <h1><SiBuymeacoffee className="coffee" /> 커피메뉴</h1>
-                {menuList?.drink.map((item, i) => (
-                    <>
-                    <Coffee
-                        id={item.menuid}>
-                        <CoMenu src = {item.menuimg}/>
-                        <p>
-                            {item.category}<br/>
-                            {item.menuname}<br/>
-                            <br/>
-                            {item.menuprice}원
-                        </p>
-                    </Coffee>
-                    </>
-                ))}
-            </CoffeeMenu>
-            <DessertMenu>
-                <h1><GiCakeSlice className="cake" /> 디저트메뉴</h1>
-                {menuList?.dessert.map((item, i) => (
-                    <>
-                    <Dessert
-                        id={item.menuid}>
-                        <CoMenu src = {item.menuimg}/>
-                        <p>
-                            {item.category}<br/>
-                            {item.menuname}<br/>
-                            <br/>
-                            {item.menuprice}원
-                        </p>
-                    </Dessert>
-                    </>
-                ))}
-            </DessertMenu>
+            <div className="cafeDetailMenuTab">
+                <div className="drinkMenu">
+                    <div className="coffeeMenuTitle">
+                        <SiBuymeacoffee className="coffeeIcon" /> <p>커피 메뉴</p>
+                    </div>
+                    <div className="drinkMenuList">
+                        {menuList?.drink.map((item, i) => (
+                            <Coffee
+                                id={item.menuid}>
+                                <Menu src = {item.menuimg}/>
+                                <div className="menuDetail" >
+                                    <p>{item.menuname}</p><p>{item.menuprice}원</p>
+                                    </div>
+                            </Coffee>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="CafeHr"></div>
+
+                <div className="dessertMenu">
+                    <div className="dessertMenuTitle">
+                        <GiCakeSlice className="dessertIcon" /> <p>디저트 메뉴</p>
+                    </div>
+                    <div className="dessertMenuList">
+                        {menuList?.dessert.map((item, i) => (
+                            <Dessert
+                                id={item.menuid}>
+                                <Menu src = {item.menuimg}/>
+                                <div className="menuDetail">
+                                    <p>{item.menuname}</p><p>{item.menuprice}원</p>
+                                </div>
+                            </Dessert>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            
         </>
     );
 }
-
-const CoffeeMenu = styled.div`
-    width: 950px;
-    
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Arita-dotum-Medium';
-    border-bottom: 1px solid #D9D9D9;
-    
-    h1 {
-        cursor: default;
-        font-size: 20px;
-        color: 19221F;
-    }
-
-    .coffee {
-        font-size: 24px;
-        color: #3FC275;
-    }
-`;
 
 const Coffee = styled.div`
     width: 350px;
@@ -92,66 +77,38 @@ const Coffee = styled.div`
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
-    margin-bottom: 10px;
-    margin-right: 30px;
-    margin-left: 100px;
+    border-radius:3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     & p {
         margin-top: -20px;
     }
 
-    : hover {
-        cursor: default;
-        box-shadow : 0px 3px 0px 0px #E0E0E0;
-    }
 `;
 
-const CoMenu = styled.img`
+const Menu = styled.img`
     width: 80px;
     height: 80px;
-    border: 1px solid #EEE;
-    margin-left: 20px;
-    margin-right: 20px;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    margin : 10px 20px 10px 20px;
+    object-fit: cover;
 `;
 
-const DessertMenu = styled.div`
-    width: 950px;
-
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Arita-dotum-Medium';
-
-    h1 {
-        font-size: 20px;
-        cursor: default;
-        color: 19221F;
-    }
-
-    .cake {
-        font-size: 24px;
-        color: #3FC275;
-    }
-`;
 
 const Dessert = styled.div`
     width: 350px;
     height: 100px;
-    border: 1px solid black;
+    border: 1px solid #D9D9D9;
 
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
-    margin-bottom: 10px;
-    margin-right: 30px;
-    margin-left: 100px;
+    border-radius:3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     & p {
         margin-top: -20px;
-    }
-
-    : hover {
-        cursor: default;
-        box-shadow : 0px 3px 0px 0px #E0E0E0;
     }
 `;
 export default DetailMenu;
