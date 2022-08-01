@@ -92,10 +92,6 @@ const DetailReview = () => {
     }
 
 
-
-
-
-
     // 댓글 수정
     const [ChangeReview, setChangeReview] = useState("")
     const ModifyComment = (e) => {
@@ -165,12 +161,12 @@ const DetailReview = () => {
     const settings = {
         slideToShow: 1,
         variableWidth: true,
-        
+
         // variableWidth: true,
         // slideToScroll: 15,
         // nextArrow: <Button place="right" margin="0 0 0 590px" />,
         // prevArrow: <Button margin="0 0 0 -590px" />,
-      };
+    };
 
 
 
@@ -217,98 +213,46 @@ const DetailReview = () => {
                             </ReviewDrop>
 
                         ) : (null)} */}
-{/* 게시글 이미지 슬라이드 */}
+                        {/* 게시글 이미지 슬라이드 */}
                         <div className="imageContainer">
                             <StyledSlider className="imageSlider" {...settings}>
-                            {item.image.map((item, i) => (
-                                <>
-                                    <div className='reviewImgDiv'>
-                                        <img src={item.img} alt='slider' />
-                                    </div>
-                                </>
-                            ))}
+                                {item.image.map((item, i) => (
+                                    <>
+                                        <div className='reviewImgDiv'>
+                                            <img src={item.img} alt='slider' />
+                                        </div>
+                                    </>
+                                ))}
                             </StyledSlider>
                         </div>
-                        
+
                         {/* <ReviewImg src={item.image[0].img} /> */}
-
-                        <ReviewStarLove>
+                        {/* 이미지 슬라이드 하단부분*/}
+                        <div className="content-commentDiv">
                             <div className="like-starDiv">
-                                <BsStarFill className="star" /> <div className="text">별점 {item.star}점
-                            </div>
-                                <span className="like" onClick={() => { LikeClick( {postid: review[i]?.postid, i: i,} ) }}>
+                                <BsStarFill className="star" /> <div className="text"> 별점 {item.star}점
+                                </div>
+                                <div className="like" onClick={() => { LikeClick({ postid: review[i]?.postid, i: i, }) }}>
                                     {AllLikeList[LikeIndex[i]]?.postid === review[i]?.postid &&
-                                    AllLikeList[LikeIndex[i]]?.like ?
-                                    (<BsHeartFill />)
-                                    : (<BsHeart />)
+                                        AllLikeList[LikeIndex[i]]?.like ?
+                                        (<BsHeartFill />)
+                                        : (<BsHeart />)
                                     }
-                                </span>
-                                <div className="text">좋아요 {item.likecnt}개</div>
+                                </div>
+                                <div className="text"> 좋아요 {item.likecnt}개</div>
                             </div>
-                        </ReviewStarLove>
 
-                        <ReviewUserInfo>{item.nickname}</ReviewUserInfo>
-                        <Tag>
-                            {item.hashtagList.map((t, i) => (<ReviewTag>{t.hashtag}</ReviewTag>))}
-                        </Tag>
-                        <ReviewContext>
-                            {item.contents}
-                        </ReviewContext>
-                        <ReviewCommentGroup>
-                            {comment != item.commentList ? (
-                                <details>
-                                    <summary>댓글 {item.commentCnt}개 모두 보기</summary>
-                                    <ReviewDate>
-                                        {item.modifiedAt}
-                                    </ReviewDate>
-                                    <ReviewComUp>
-                                        {item.commentList.map((comment, i) => (
-                                            <>
-                                                <div>
-                                                    {userName === comment.nickname ? (
-                                                        <span style={{ display: "flex" }}>
-                                                            <ReviewProfile src={comment.profileimg} />
-                                                            {comment.nickname}{comment.contents}
-                                                            <Btn style={{ display: click }} onClick={() => { clickevent() }}>🖊</Btn>
-                                                            <input
-                                                                onChange={(e) => {
-                                                                    ModifyComment(e)
-                                                                }}
-                                                                type="text"
-                                                                style={{ display: unclick }}
-                                                            />
-                                                            <Btn style={{ display: unclick }}
-                                                                onClick={() => {
-                                                                    unclickevent();
-                                                                    // changeCom();
-                                                                    SendModify(
-                                                                        comment.commentid,
-                                                                        item.postid,
-                                                                        ChangeReview)
-                                                                }}>🖊</Btn>
-                                                            <Btn
-                                                                onClick={() => {
-                                                                    SendDelete(
-                                                                        comment.commentid,
-                                                                        item.postid
-                                                                    )
-                                                                }}
-                                                            >⨉</Btn>
-                                                        </span>) : (
-                                                        <span style={{ display: "flex" }}><ReviewProfile src={comment.profileimg} />{comment.nickname} : {comment.contents}{comment.modifiedAt}
-                                                        </span>
-
-                                                    )
-                                                    }
-                                                </div>
-                                            </>
-                                        ))}
-                                    </ReviewComUp>
-
-                                </details>
-                            ) : (<summary></summary>)}
-                        </ReviewCommentGroup>
-                        <ReviewComment>
+                            <div className="nickname">{item.nickname}</div>
+                            <div className="hashTag">
+                                {item.hashtagList.map((t, i) => (<ReviewTag>{t.hashtag} </ReviewTag>))}
+                            </div>
+                            <div className="reviewcontentDiv">{item.contents}</div>
+                            <div className="showComments">댓글 {item.commentCnt}개 모두 보기</div>
+                            <div className="modified">{item.modifiedAt}</div>
+                        </div>
+                           
+                        <div className="inputCommentDiv">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuxyawNNOaJGwlR1wUq1PSSeLw3YwLj0S1vA&usqp=CAU"></img>
                             <input
                                 type="text"
                                 onChange={(e) => {
@@ -317,8 +261,83 @@ const DetailReview = () => {
                                 placeholder="댓글달기"
                                 onKeyPress={(e) => { keyPress(e, item.postid); }}
                             />
-                        </ReviewComment>
+                        </div>
+                        {item.commentList.length === 0? 
+                        
+                        <></> :
+                        
+                        <div id={item.postid} className="commentBox">
+                                    {item.commentList?.map((comment, i) => (
+                                        <div className="commentDiv">
+                                            <img src={comment.profileimg}></img>
+                                            <div className="commentInfo">
+                                                <div className="commentNickname">{comment.nickname}</div>
+                                                <div className="commentContext">{comment.contents}</div>
+                                            </div>
+                                        </div>
+                                        
+    
+                                    ))}
+                            </div>
+                            }
+                        
+                        
 
+                        {/* <div className="commentContainer">
+                        {comment != item.commentList ? (
+                                    <details>
+                                        <summary>댓글 {item.commentCnt}개 모두 보기</summary>
+                                        <ReviewDate>
+                                            {item.modifiedAt}
+                                        </ReviewDate>
+                                        <ReviewComUp>
+                                            {item.commentList.map((comment, i) => (
+                                                <>
+                                                    <div>
+                                                        {userName === comment.nickname ? (
+                                                            <span style={{ display: "flex" }}>
+                                                                <ReviewProfile src={comment.profileimg} />
+                                                                {comment.nickname}{comment.contents}
+                                                                <Btn style={{ display: click }} onClick={() => { clickevent() }}>🖊</Btn>
+                                                                <input
+                                                                    onChange={(e) => {
+                                                                        ModifyComment(e)
+                                                                    }}
+                                                                    type="text"
+                                                                    style={{ display: unclick }}
+                                                                />
+                                                                <Btn style={{ display: unclick }}
+                                                                    onClick={() => {
+                                                                        unclickevent();
+                                                                        // changeCom();
+                                                                        SendModify(
+                                                                            comment.commentid,
+                                                                            item.postid,
+                                                                            ChangeReview)
+                                                                    }}>🖊</Btn>
+                                                                <Btn
+                                                                    onClick={() => {
+                                                                        SendDelete(
+                                                                            comment.commentid,
+                                                                            item.postid
+                                                                        )
+                                                                    }}
+                                                                >⨉</Btn>
+                                                            </span>) : (
+                                                            <span style={{ display: "flex" }}><ReviewProfile src={comment.profileimg} />{comment.nickname} : {comment.contents}{comment.modifiedAt}
+                                                            </span>
+
+                                                        )
+                                                        }
+                                                    </div>
+                                                </>
+                                            ))}
+                                        </ReviewComUp>
+
+                                    </details>
+                                ) : (<summary></summary>)}
+                        </div> */}
+                        
                     </div>
                 ))}
             </div>
@@ -399,67 +418,21 @@ const ReviewImg = styled.img`
     height: 500px;
 `;
 
-const ReviewStarLove = styled.div`
-    // width: 500px;
-    // height: 24px;
-    // margin-left: 20px;
-    // margin-bottom: 10px;
-`;
+const ReviewStarLove = styled.div``;
 
-const ReviewUserInfo = styled.div`
-    width: 500px;
-    height: 20px;
-    margin-left: 20px;
-    font-size: 20px;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: row;
-`;
+const ReviewUserInfo = styled.div``;
 
-const Tag = styled.div`
-    position: relative;
-    margin-left: 18px;
-    width: 500px;
-`;
+const Tag = styled.div``;
 
 const ReviewTag = styled.div`
     width: 500px;
     height: 20px;
-    margin-left: 10px;
-    padding: -10px;
     display: contents;
 `;
 
-const ReviewContext = styled.div`
-    width: 480px;
-    margin-top: 10px;
-`;
+const ReviewContext = styled.div``;
 
-const ReviewCommentGroup = styled.div`
-    position: relative;
-    width: 400px;
-    margin: 0 auto;
-    color: gray;
-    margin-left: -20px;
-
-    details {
-        font: 16px "Open Sans", sans-serif;
-        float: left;
-            padding: .5em .5em 0;
-      }
-      
-    summary {
-        margin-left: 20px;
-        cursor: pointer;
-        list-style: none;
-        font-family: 'Arita-dotum4.0(OTF)';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 20px;
-        margin-top: 15px;
-    }
-`;
+const ReviewCommentGroup = styled.div``;
 
 const ReviewComUp = styled.div`
     width: 500px;

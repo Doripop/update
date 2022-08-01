@@ -13,7 +13,7 @@ position: relative;
     flex-direction: row;
     justify-content: flex-end;
 }
-
+ 
 .detailContainer{
     margin-top: 30px;
 }
@@ -25,6 +25,7 @@ position: relative;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 
 .reviewHeader{
@@ -37,8 +38,9 @@ position: relative;
 .like-starDiv {
     color: #19221f;
     display: flex;
+    align-items: center;
     position:relative;
-    margin: 10px 0px 10px 0px;
+    margin: 10px 20px 10px 0px;
     height: 24px;
 }
 
@@ -47,7 +49,9 @@ position: relative;
 }
 
 .like{
+    margin-top: 3px;
     font-size: 24px;
+    margin-left: 15px;
 }
 
 .star-text{
@@ -55,9 +59,27 @@ position: relative;
     font-family: "Arita-dotum-SemiBold";
 }
 
+.text{
+    margin-left: 5px;
+}
 .nickname{
     font-size: 20px;
     font-family: "Arita-dotum-SemiBold";
+}
+
+.hashTag{
+    gap: 5px;
+    margin-top: 5px;
+    font-size: 16px;
+    font-family: "Arita-dotum-Medium";
+}
+
+.reviewcontentDiv{
+    width: auto;
+    margin-top: 5px;
+    font-family: "Arita-dotum-Medium";
+    font-size: 20px;
+    height: auto;
 }
 
 .imageSlider{
@@ -78,3 +100,123 @@ position: relative;
     height: 500px;
     object-fit: cover;
 }
+
+.content-commentDiv{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 0px 20px;
+}
+
+.inputCommentDiv{
+    display: flex;
+    width: 500px;
+    height: 60px;
+    line-height: 5;
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+    border-radius: 0px 0px 5px 5px;
+    align-items: center;
+}
+
+.inputCommentDiv > img{
+    margin-left: 20px;
+    margin-right: 15px;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuxyawNNOaJGwlR1wUq1PSSeLw3YwLj0S1vA&usqp=CAU);
+}
+
+.inputCommentDiv > input{
+  text-align:left;
+  font-size: 20px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+}
+
+.inputCommentDiv > input:focus{
+    border-color:#0982f0;
+}
+
+.inputCommentDiv > input:placeholder{
+    background-size: contain;
+    background-position:  1px center;
+    background-repeat: no-repeat;
+    text-align: center;
+    text-indent: 0;
+}
+
+.showComments{
+    margin: 15px 0px 15px 0px;
+    font-family: "Arita-dotum-SemiBold";
+    color: #969696;
+    font-size: 20px;
+    height: auto;
+}
+
+.commentContainer{
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    color: #D9D9D9;
+    margin-left: -20px;
+}
+
+.commentContainer > details{
+    font: 16px "Open Sans", sans-serif;
+    float: left;
+    padding: .5em .5em 0;
+}
+
+.commentContainer > summary{
+    margin-left: 20px;
+        cursor: pointer;
+        list-style: none;
+        font-family: 'Arita-dotum4.0(OTF)';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 20px;
+        margin-top: 15px;
+}
+
+.modified{
+    font-family: "Arita-dotum-Medium";
+    font-size: 15px;
+    color: #969696;
+    margin-bottom: 15px;
+}
+
+.commentBox{
+    padding-top: 20px;
+    margin-left: 20px;
+}
+
+.commentDiv{
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: "Arita-dotum-SemiBold";
+}
+
+.commentDiv > img{
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.commentInfo{
+    margin-left: 15px;
+}
+
+.commentNickname{
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.commentContext{
+    font-size: 14px;
+}
+

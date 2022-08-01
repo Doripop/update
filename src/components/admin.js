@@ -96,7 +96,6 @@ const Admin = () => {
                             subMenu === "B" && <Success /> ||
                             subMenu === "C" && <Reject /> ||
                             subMenu === "D" && <RealAllCafe />
-
                         }
                     </div>
                 </div>
