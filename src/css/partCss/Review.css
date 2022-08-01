@@ -216,6 +216,10 @@
     margin-left: 20px;
 }
 
+.commentBoxhidden{
+    display: none;
+}
+
 .commentDiv{
     margin-bottom: 5px;
     display: flex;

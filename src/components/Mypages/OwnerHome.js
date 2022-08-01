@@ -63,7 +63,7 @@ const OwnerHome = () => {
             {page === "A" && (
                 <Container>
                     <Home id={OwnerInfoList?.cafeid}>
-                        {OwnerInfoList?.dilivery ?
+                        {Delivery ?
                             (
                                 <h3>
                                     <MdDeliveryDining className="icon" />배달 가능 매장입니다!

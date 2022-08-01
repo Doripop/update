@@ -19,13 +19,20 @@ const Header = () => {
   const navigate = useNavigate()
   const [isLogin, setIsLogin] = useState(null)
   const [role, setRole] = useState(null)
-  const searchItem = useRef("")
+  const [intext, setIntext] =useState("")
+
+
+
+  const clearInput =(e)=>{
+    setIntext(e.target.value)
+  }
 
   const onKeyPress = (e) => {
     if (e.key === 'Enter') {
       dispatch(CafeSearch({
         keyword: e.target.value
       }))
+      setIntext("")
       navigate("/search")
     }
   }
@@ -58,7 +65,10 @@ const Header = () => {
             <input
               type="text"
               placeholder="검색"
-              ref={searchItem}
+              value={intext}
+              onChange={(e)=>{
+                clearInput(e)
+              }}
               onKeyPress={(e) => { onKeyPress(e) }} />
           </div>
         </div>
