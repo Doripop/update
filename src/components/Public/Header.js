@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 import Logo_Cat from "../../css/Logo_Cat_lattee.png"
 import { HeaderLogOut, HeaderLogOutIcon, HeaderSearchIcon } from "../../css/public";
 import { FaUserEdit } from 'react-icons/fa'
+import myPage from '../../css/public/myPage.svg'
+import newLogout from '../../css/public/newLogout.svg'
 
 
 
@@ -81,13 +83,13 @@ const Header = () => {
           :
           <div className="buttonArea">
             <div>
-              <HeaderLogOut
+              <img src={newLogout}
                 style={{cursor: "pointer"}}
                 onClick={() => {
                   dispatch(LogOut())
                 }} />
-              <HeaderLogOutIcon
-                style={{cursor: "pointer"}}
+              <img src={myPage}
+                style={{cursor: "pointer",marginLeft:"50px"}}
                 onClick={() => {
                   role === "admin" ?
                     navigate("/admin") :
