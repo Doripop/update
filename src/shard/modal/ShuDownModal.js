@@ -17,7 +17,7 @@ const ShuDown = (props) => {
         try{
            const {data} = await instance.delete("api/owner")
       
-            console.log(data)
+          
          
             return data.result ? alert("카페가 정상적으로 삭제 되었습니다.")
                     : alert("폐업에 실패했습니다.")

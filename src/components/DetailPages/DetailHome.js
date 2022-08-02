@@ -16,14 +16,14 @@ import "../../css/partCss/DetailHome.css";
 const DetailHome = () => {
   const dispatch = useDispatch();
   const parm = useParams();
-  console.log(parm);
+ 
 
   //카페정보
   const OwnerInfoList = useSelector((state) => state.MypageSlice.OwnerInfo);
-  console.log(OwnerInfoList);
+  
 
   const home = useSelector((state) => state.AllSlice.DetailCafeList);
-  console.log(home);
+
 
   React.useEffect(() => {
     //메뉴 정보 받아오기

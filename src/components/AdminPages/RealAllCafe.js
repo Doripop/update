@@ -7,7 +7,7 @@ import { AllRegCafe, CafeRemove, SuccessApplyList } from "../../redux/modules/ad
 
 const RealAllCafe = () => {
 
-    const [action, setAction] = useState(false);
+   
 
     const dispatch = useDispatch()
 
@@ -16,7 +16,7 @@ const RealAllCafe = () => {
     }, [dispatch]);
 
     const list = useSelector((state) => state.adminSlice.RealInfo);
-    console.log(list)
+
 
     const CafeDelete = (cafeid) =>{
         // console.log(id,regid, permit)

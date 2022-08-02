@@ -11,7 +11,7 @@ const CafeReg = () => {
     
     const openModal = () => {
       setModalOpen(true);
-      console.log("아아아아아")
+   
     }
 
     const closeModal = () => {

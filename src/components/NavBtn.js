@@ -15,7 +15,7 @@ const NavBtn = () => {
     }
 
     const way = (e) => {
-        // console.log(e.target.value)
+     
         dispatch(sortList(e.target.value))
     }
 

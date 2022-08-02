@@ -13,7 +13,7 @@ const Success = () => {
     }, [dispatch]);
 
     const list = useSelector((state) => state.adminSlice.SuccessInfo);
-    console.log(list)
+ 
 
 
     return (

@@ -17,10 +17,10 @@ const ModifyCafe = () => {
     const dispatch = useDispatch()
     //카페베너
     const OwnerInfoBenner = useSelector((state) => state.MypageSlice.OwnerInfoBenner);
-    console.log(OwnerInfoBenner, "이게 필요하다 지금")
+   
     //테스트
     const OwnerInfoList = useSelector((state) => state.MypageSlice.OwnerInfo);
-    console.log(OwnerInfoList)
+  
 
     React.useEffect(() => {
         dispatch(OwnerCafeLoad())

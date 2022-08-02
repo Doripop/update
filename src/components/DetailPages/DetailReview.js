@@ -39,9 +39,7 @@ const DetailReview = () => {
 
     const AllLikeList = useSelector((state) => state.Likes.LikeInfo);
     const review = useSelector((state) => state.AllSlice.DetailCafePostList);
-    console.log(AllLikeList)
-    console.log(review, "지금필요한게 이거")
-
+  
 
     const LikeIndex = review?.map((item, i) => {
         return AllLikeList?.findIndex((list, k) => {
@@ -49,17 +47,8 @@ const DetailReview = () => {
         })
 
     })
-    console.log(LikeIndex)
-    // const LikeIndex = review.findIndex((list,i)=>{
-    //     AllLikeList.map((item,i)=>{
-    //         return list.postid === item.postid
-    //     })
-    // })
-
-
-    // console.log(review)
-    // console.log(Like)
-
+   
+   
     const [unclick, setUnclick] = useState("none")
     const [click, setClick] = useState("flex")
     const [checkId, setCheckId] = useState("")
@@ -72,13 +61,6 @@ const DetailReview = () => {
         setClick("flex")
         setUnclick("none")
     }
-
-    const nickname = useRef(null)
-    const contents = useRef(null)
-
-    // const changeCom = () => {
-    //     dispatch(CreateComment(contents.current.value))
-    // }
 
 
     const keyPress = (e, id) => {
@@ -120,18 +102,17 @@ const DetailReview = () => {
     //좋아요 기능
 
     const LikeClick = async (postid) => {
-        console.log(postid)
         const A = AllLikeList.findIndex((list) => {
             return list.postid === postid.postid
         })
-        console.log(A)
+    
         if (!isLogin) {
             return window.alert("로그인 후 이용해주세요!")
         } else if (AllLikeList[A]?.postid === postid.postid &&
             AllLikeList[A]?.like === false) {
-            console.log("실행")
+        
             const { data } = await instance.post(`api/${postid.postid}/like`)
-            console.log(data)
+       
             dispatch(LikeList({
                 postid: postid.postid,
                 like: data.result
@@ -144,7 +125,7 @@ const DetailReview = () => {
         } else if (AllLikeList[A]?.postid === postid.postid &&
             AllLikeList[A]?.like === true) {
             const { data } = await instance.post(`api/${postid.postid}/like`)
-            console.log(data)
+          
             dispatch(UnLikeList({
                 postid: postid.postid,
                 like: data.result
@@ -181,7 +162,7 @@ const DetailReview = () => {
             setHide(false)
             setCheckPostID(postid)
         }
-        console.log(hide);
+     
     }
 
 

@@ -20,12 +20,11 @@ const DetailBanner = (images) => {
     dispatch(DetailCafeBanner(parm.id))
   }, [dispatch, parm.id])
 
-  console.log(parm)
+ 
   const list = useSelector((state) => state.AllSlice.DetailCafeBanner);
-  console.log(list?.imageList)
-  // console.log(list?.opentime, "오픈시간" , list?.opentime.split("").slice(0,2))
-  console.log(list)
-  const defaultTime = [0, 0, 0, 0]
+  
+
+  
 
   const settings = {
     slide: 'div',

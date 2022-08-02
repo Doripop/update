@@ -37,7 +37,6 @@ const OwnerMenu = () => {
 
     const [menuImgae, setMenuImage] = useState("")
     const MenuImage = (e) => {
-        console.log(e.target.files[0])
         setMenuImage(e.target.files[0])
     }
 

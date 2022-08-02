@@ -12,17 +12,17 @@ const initialState = {
 export const MyReviewCreate = createAsyncThunk(
     'Review/MyReviewCreate',
     async (myReview) => {
-        console.log(myReview)
+        
         try {
             const { data } = await instance.post(`api/${myReview.cafeid}/posts`, myReview.formdata, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
             })
-            console.log(data);
+         
             return data
         } catch (error) {
-            console.log(error)
+        
             // window.alert(error) 
         }
     }
@@ -34,10 +34,10 @@ export const MyReviewLoad = createAsyncThunk(
     async (reviewInfo) => {
         try {
             const { data } = await instance.get("/api/user/posts")
-            console.log(data)
+        
             return data
         } catch (error) {
-            console.log(error)
+         
         }
     }
 )
@@ -47,21 +47,20 @@ export const MyReviewModify = createAsyncThunk(
     'Review/MyReviewModify',
     async (myRreview) => {
         try {
-            console.log(myRreview)
+           
             const { data } = await instance.patch(`api/posts/${myRreview.postid}`, { contents: myRreview.contents })
             const ChangeReview = {
                 contents: myRreview.contents,
                 star: myRreview.star,
                 hashtag: myRreview.hashtag
             }
-            console.log(data)
-
+           
             return {
                 contents: ChangeReview,
                 postid: myRreview.postid
             }
         } catch (error) {
-            console.log(error)
+         
         }
     }
 )
@@ -71,14 +70,14 @@ export const MyReviewDelete = createAsyncThunk(
     'Review/MyReviewDelete',
     async (id) => {
         try {
-            console.log(id)
+           
             const { data } = await instance.delete(`api/posts/${id.postid}`)
-            console.log(data)
+          
             return {
                 postid: id.postid
             }
         } catch (error) {
-            console.log(error)
+         
         }
     }
 )

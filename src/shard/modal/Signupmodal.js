@@ -163,7 +163,7 @@ const SignupModal = (props) => {
     } else if (role == "owner" && !Businessname.current.value) {
       return alert("<필수> 상호명을 입력하세요");
     } else {
-      console.log("회원가입 요청");
+     
       try {
         //   console.log(Upimage[0])
         const formdata = new FormData();

@@ -22,14 +22,13 @@ export const LogOut = createAsyncThunk(
     async () => {
         try {
             const { data } = await instance.post("/api/user/signout")
-            console.log(data)
-            // localStorage.removeItem("refreshtoken")
-            // localStorage.removeItem("token")
+          
+           
             localStorage.clear()
             window.location.replace("/")
         } catch (error) {
-            console.log(error)
-            // window.alert(error)
+       
+            window.alert(error)
         }
     }
 )
@@ -68,7 +67,7 @@ export const CreateComment = createAsyncThunk(
             // contents.postid
             return { comment: comment, postid: contents.postid }
         } catch (error) {
-            console.log(error)
+            window.alert(error)
         }
     }
 )
@@ -91,7 +90,7 @@ export const ModifyMyCommnet = createAsyncThunk(
                 postid: CommentInfo.postid
             }
         } catch (error) {
-            console.log(error)
+            window.alert(error)
         }
     }
 )
@@ -109,7 +108,7 @@ export const DeleteMyComment = createAsyncThunk(
                 postid: CommentId.postid
             }
         } catch (error) {
-            console.log(error)
+            window.alert(error)
         }
     }
 )
@@ -131,7 +130,7 @@ export const DeletePost = createAsyncThunk(
 
             return postid
         } catch (error) {
-            console.log(error)
+            window.alert(error)
         }
     }
 )
@@ -150,8 +149,8 @@ export const MainReview = createAsyncThunk(
 
             return data
         } catch (error) {
-            console.log(error);
-            // window.alert(error)
+            window.alert(error)
+           
         }
     }
 )
@@ -175,8 +174,8 @@ export const ReviewCreate = createAsyncThunk(
             return data.result ?
                 window.location.replace("/") : window.alert("게시글 작성에 실패하였습니다.")
         } catch (error) {
-            console.log(error)
-            // window.alert(error) 
+            window.alert(error)
+           
         }
     }
 )
@@ -190,7 +189,7 @@ export const ReviewReg = createAsyncThunk(
             const { data } = await instance.get("api/cafes");
             return data
         } catch (error) {
-            console.log(error)
+            window.alert(error)
         }
     }
 )
@@ -216,6 +215,7 @@ export const DetailCafeBanner = createAsyncThunk(
 
             return data
         } catch (error) {
+            
         }
     }
 )
@@ -227,7 +227,7 @@ export const DetailCafeHome = createAsyncThunk(
             const { data } = await instance.get(`api/cafes/${cafeid}/info`);
             return data
         } catch (error) {
-            console.log(error)
+           
         }
     }
 )
@@ -239,7 +239,7 @@ export const DetailCafeMenu = createAsyncThunk(
             const { data } = await instance.get(`api/cafes/${cafeid}/menus`)
             return data
         } catch (error) {
-            console.log(error)
+            
         }
     }
 )
@@ -281,13 +281,13 @@ const change = createSlice({
     },
     extraReducers: {
         [CafeSearch.pending]: (state) => {
-            console.log("호출중")
+           
         },
         [CafeSearch.fulfilled]: (state, action) => {
             state.SearchCafeInfo = action.payload.data
         },
         [CafeSearch.rejected]: (state) => {
-            console.log("호출 실패")
+           
         },
         [DetailCafeHome.fulfilled]: (state, action) => {
             state.DetailCafeList = action.payload.data

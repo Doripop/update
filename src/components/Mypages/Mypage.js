@@ -77,7 +77,7 @@ const Mypage = () => {
           
             
         }catch(error){
-            console.log(error)
+           
         }
     }
 

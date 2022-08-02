@@ -67,7 +67,7 @@ const LoginModal = (props) => {
       localStorage.setItem("profileimg", data.data.profileimg);
       localStorage.setItem("logoimg", data.data.logoimg);
       localStorage.setItem("cafename", data.data.businessname);
-      console.log(data);
+   
       return data.data.role === "admin"
         ? window.location.replace("/admin")
         : data.result

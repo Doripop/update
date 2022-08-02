@@ -9,6 +9,7 @@ import Button from './Button';
 //Banner Img import
 import BannerImg from '../css/BannerImg/service.jpg';
 import BannerImg2 from '../css/BannerImg/survey.jpg';
+import BannerImg3 from '../css/BannerImg/banner3.jpeg'
 
 const Banner = () => {
     const settings = {
@@ -23,12 +24,15 @@ const Banner = () => {
     return (
 
         <StyledSlider {...settings}>
-            <a href='https://bit.ly/3SgpCIs'>
-              <img src={BannerImg} alt='slider' />
-            </a>
-            <a href='https://docs.google.com/forms/d/e/1FAIpQLSfgypBBpGJDVPth59Nm392Xt4Re5F13gBWgENpGwwVmlQM6CQ/viewform'>
-              <img src={BannerImg2} alt='slider' />
-            </a>
+           
+              <img 
+             
+              src={BannerImg} alt='slider' />
+                <img 
+              onClick={()=>{
+                window.open('https://docs.google.com/forms/d/e/1FAIpQLSe1f0SYJUb6mxFJi08aqGai6w0m6fQyOm9oQINj6UAMcFlhSw/viewform', "_blank") 
+               }}
+              src={BannerImg3} alt='slider' />
         </StyledSlider> 
       );
     }

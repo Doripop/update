@@ -21,7 +21,7 @@ const CardList = () => {
     //가로 div 만들어서 붙여줌 3개 씩
     var result = [];
     for (let i = 0; i < city.length; i += 3) result.push(city.slice(i, i + 3));
-    console.log(result)
+  
 
     return (
         <div className='containDiv'>

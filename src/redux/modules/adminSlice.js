@@ -18,8 +18,7 @@ export const CafeApplyList = createAsyncThunk(
     async (thunkAPI) => {
         try {
             const { data } = await instance.get("/api/registers");
-            // console.log(data);
-            // dispacth(listLoad(data));
+          
             return data
         } catch (error) {
             window.alert(error)
@@ -32,7 +31,7 @@ export const SuccessApplyList = createAsyncThunk(
     async (thunkAPI) => {
         try {
             const { data } = await instance.get("/api/registers/permission");
-            console.log(data)
+         
             return data
         } catch (error) {
             window.alert(error)
@@ -45,7 +44,7 @@ export const CafeRejectList = createAsyncThunk(
     async (thunkAPI) => {
         try {
             const { data } = await instance.get("/api/registers/rejection");
-            console.log(data)
+        
             return data
         } catch (error) {
             window.alert(error)
@@ -58,7 +57,7 @@ export const AllRegCafe = createAsyncThunk(
     async (thunkAPI) => {
         try {
             const { data } = await instance.get("/api/registeredcafe");
-            console.log(data)
+           
             return data
         } catch (error) {
             window.alert(error)
@@ -72,13 +71,13 @@ export const AllRegCafe = createAsyncThunk(
 export const CafeApprove = createAsyncThunk(
     'admin/ApproveCafe',
     async (id, thunkAPI) => {
-        console.log(id)
+      
         try {
             const { data } = await instance.patch(`api/registers/${id.regid}/${id.permit}`)
             // const {data} = await instance.get('admin')
 
 
-            console.log(data)
+          
             //스탠다드 리듀서가 아니게 된다 크리에이트에이청크 쓰는 순간...
             thunkAPI.dispatch(adminAllList(id.regid))
             ///////////////////////////////////////
@@ -101,7 +100,7 @@ export const CreateCafePage = createAsyncThunk(
         try {
             const { data } = await instance.post(`api/registers/${id}`)
             // const {data} =await instance.get('admin')
-            console.log(data)
+         
             return data;
         } catch (error) {
             window.alert(error)
@@ -113,10 +112,10 @@ export const CreateCafePage = createAsyncThunk(
 export const CafeRemove = createAsyncThunk(
     'admin/RemoveCafe',
     async (id, thunkAPI) => {
-        console.log(id);
+       
         try {
             const { data } = await instance.delete(`api/registers/${id.cafeid}`)
-            console.log(data)
+           
             thunkAPI.dispatch(adminFinalList(id.cafeid))
             return data;
         } catch (error) {
@@ -145,7 +144,7 @@ const admin = createSlice({
     extraReducers: {
 
         [CafeApplyList.fulfilled]: (state, action) => {
-            console.log(action.payload)
+           
             state.CafeInfo = action.payload.data.registerList
         },
         [SuccessApplyList.fulfilled]: (state, action) => {

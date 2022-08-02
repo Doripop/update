@@ -95,7 +95,6 @@ const MyReview = () => {
     //좋아요 기능
 
     const LikeClick = async (postid) => {
-        console.log(postid)
 
         if (!isLogin) {
             return window.alert("로그인 후 이용해주세요!")

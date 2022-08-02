@@ -47,7 +47,7 @@ const ReviewModal = (props) => {
   };
 
   const clickDropDownItem = (clickedItem) => {
-    console.log(clickedItem);
+    
     setInputValue(`${clickedItem.cafe}:${clickedItem.address}`);
     setSendCafe({
       cafeid: clickedItem.cafeid,
@@ -123,7 +123,7 @@ const ReviewModal = (props) => {
       const currentImageUrl = URL.createObjectURL(imageLists[i]);
       imageUrlLists.push(currentImageUrl);
 
-      console.log(OrignImage, " 146");
+     
       // formData.append("file", imageLists[i])
     }
     if (imageUrlLists.length > 3) {
@@ -161,7 +161,7 @@ const ReviewModal = (props) => {
     // console.log(Upimage)
     // FormData의 value 확인
     for (let value of formData.values()) {
-      console.log(value);
+    
     }
     dispatch(
       ReviewCreate({

@@ -58,13 +58,13 @@ const CafeReg = (props) => {
         });
       })
       .then((result) => {
-        console.log(result); // 위, 경도 결과 값
+        
         const lat = result.lat;
         const lon = result.lon;
         setLatitude(lat);
         setLongitude(lon);
       });
-    console.log(latitude, longitude, address, zone, query);
+    // console.log(latitude, longitude, address, zone, query);
   };
 
   // window.setTimeout(() => {
@@ -92,9 +92,9 @@ const CafeReg = (props) => {
             // oldAddress: query
           });
           alert("등록이 완료되었습니다!");
-          console.log(data);
+       
         } else {
-          console.log("사장 등록");
+        
           const { data } = await instance.post("api/owner/regist-cafe", {
             address: query,
             addressdetail: Detail_Address.current.value,
@@ -109,7 +109,7 @@ const CafeReg = (props) => {
         }
         // console.log(data);
       } catch (error) {
-        console.log(error);
+      
         window.alert(error);
       }
     }

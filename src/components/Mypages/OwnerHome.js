@@ -20,10 +20,10 @@ const OwnerHome = () => {
 
     //카페정보
     const OwnerInfoList = useSelector((state) => state.MypageSlice.OwnerInfo);
-    console.log(OwnerInfoList)
+
     //카페베너
     const OwnerInfoBenner = useSelector((state) => state.MypageSlice.OwnerInfoBenner);
-    console.log(OwnerInfoBenner)
+   
 
     const intro = React.useRef(null)
     const notice = React.useRef(null)

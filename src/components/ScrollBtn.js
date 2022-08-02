@@ -13,10 +13,7 @@ const ScrollBtn = (props) => {
     <ScrollTopBtn>
       <SlideUp onClick={() => { window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }) }}/>
     </ScrollTopBtn>
-    // <div>     
-    //    {/* <Btn onClick={() => { window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }) }}> <RiArrowUpSFill size="40" /> </Btn> */}
-    //   {/* <img src={BannerImg} width="80" height="80"> </img> */}
-    // </div>
+   
   )
 
 }

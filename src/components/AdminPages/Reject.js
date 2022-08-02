@@ -13,7 +13,7 @@ const Reject = () => {
     }, [dispatch]);
 
     const list = useSelector((state) => state.adminSlice.RejectInfo);
-    console.log(list)
+   
 
     return (
         <>
