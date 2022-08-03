@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 //import react Icons
 import { FiLogIn } from 'react-icons/fi'
-
+// import { ReactComponent as newLogin } from "../css/public/newLogin.svg";
+import newLogin from '../css/public/newLogin.svg'
 
 const Login = () => {
 
@@ -21,7 +22,7 @@ const Login = () => {
 
     return (
         <>
-          <LoginBtn onClick={openModal}><FiLogIn/></LoginBtn>
+          <img src={newLogin} style={{cursor: "pointer"}} onClick={openModal}/>
           <LoginModal open={modalOpen} close={closeModal} header="B L A N K">
           </LoginModal>
         </>

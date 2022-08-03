@@ -2,8 +2,11 @@ import SignupModal from "../shard/modal/Signupmodal";
 import React, { useState } from "react";
 import styled from "styled-components";
 
+
 //import react Icons
 import { SiGnuprivacyguard } from 'react-icons/si'
+// import { ReactComponent as newSignup } from "../css/public/newSignup.svg";
+import newSignup from '../css/public/newSignup.svg'
 
 const Signup = () => {
 
@@ -20,7 +23,7 @@ const Signup = () => {
 
     return (
         <>
-      <SignupBtn onClick={openModal}><SiGnuprivacyguard/></SignupBtn>
+      <img src={newSignup} onClick={openModal} style={{cursor: "pointer"}}/>
       <SignupModal open={modalOpen} close={closeModal} header="BLANK 회원가입">
       </SignupModal>
 
