@@ -32,7 +32,7 @@ instance.interceptors.response.use(
         return response;
     },
     async (error) => {
-        console.log(error.response.status);
+        // console.log(error.response.status);
         const refreshtoken = localStorage.getItem("refreshtoken");
         const nickname = localStorage.getItem("nicname")
         
@@ -47,7 +47,7 @@ instance.interceptors.response.use(
                 // console.log(data)
                 localStorage.setItem("token", data.data.accessToken)
                 localStorage.setItem("refreshtoken", data.data.refreshToken)
-                window.alert("세션이 만료되었습니다! 다시 시도해주세요~!")
+                // window.alert("세션이 만료되었습니다! 다시 시도해주세요~!")
                 window.location.reload()
                 break;
             

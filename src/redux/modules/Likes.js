@@ -19,7 +19,7 @@ export const LikeInfoLoad = createAsyncThunk(
                
                 return data;
             } catch (error) {
-                window.alert(error)
+                // window.alert(error)
             }
         }
 

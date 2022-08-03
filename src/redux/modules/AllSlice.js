@@ -209,7 +209,7 @@ export const CafeSearch = createAsyncThunk(
 export const DetailCafeBanner = createAsyncThunk(
     'AllSlice/DetailCafeBanner',
     async (cafeid) => {
-        console.log(cafeid)
+        // console.log(cafeid)
         try {
             const { data } = await instance.get(`api/cafes/${cafeid}`)
 

@@ -25,9 +25,9 @@ const DetailReview = () => {
     const [comment, setComment] = useState("")
 
     React.useEffect(() => {
-        setUsername(localStorage.getItem("nicname"))
-        setIsLogin(localStorage.getItem("token"))
+        
         dispatch(DetailCafeBanner(parm.id))
+        dispatch(LikeInfoLoad(parm.id))
         dispatch(DetailCafePost({
             id: parm.id,
             sort: sort
@@ -37,8 +37,9 @@ const DetailReview = () => {
     }, [dispatch, Like, sort, parm.id])
 
     React.useEffect(()=>{
-        dispatch(LikeInfoLoad(parm.id))
-    },[dispatch, parm.id])
+        setUsername(localStorage.getItem("nicname"))
+        setIsLogin(localStorage.getItem("token"))
+    },[])
 
     const AllLikeList = useSelector((state) => state.Likes.LikeInfo);
     const review = useSelector((state) => state.AllSlice.DetailCafePostList);
