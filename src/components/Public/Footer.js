@@ -113,7 +113,7 @@ const Footer = (props) => {
               <h2>DE 최서윤</h2>
               <p>담당업무</p>
               <p>em10807@naver.com</p>
-              <a href='#' style={{marginLeft: 3}}>
+              <a href='https://www.instagram.com/yuni_s18' style={{marginLeft: 3}}>
               <IoLogoInstagram style={{ padding: 2.2, color: "#F2F2F2", fontSize: 28}}/>
               </a>
             </div>
@@ -137,6 +137,7 @@ const Foot = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 30%;
+  justify-content:center;
 `;
 
 const FooterLeft = styled.div`

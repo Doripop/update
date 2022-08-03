@@ -10,5 +10,6 @@
 
 .banner{
     height: 700px;
-    
+    width: 1920px;
+    margin: auto;
 }

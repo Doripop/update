@@ -108,10 +108,10 @@ const Header = () => {
 
 
 const Wrap = styled.div`
-max-width: 1920px;
+max-width: 100%;
 margin : auto;
 height: 100px;
-background: #19221F;
+background-color: #19221F;
 display: flex;
 justify-content: center;
 align-items: center;

@@ -14,16 +14,7 @@ import GoogleLogin from "react-google-login";
 
 function App() {
 
-  //   const reLogin = async() => {
-  //     const {data} = await instance.post ("user-re")
-  //     localStorage.setItem("token", data.token)
-  //     localStorage.setItem("token", data.re_token)
-  //  }
-  //   React.useEffect(()=>{
-  //       if(!localStorage.getItem("token")){
-  //         reLogin()
-  //       }
-  //   },[])
+ 
 
 
 
